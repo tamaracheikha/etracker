@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_155310) do
+ActiveRecord::Schema.define(version: 2020_11_23_165529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "company_name"
+    t.text "job_description"
+    t.string "application_status"
+    t.string "company_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "content"
+    t.string "title"
+    t.date "date"
+    t.bigint "application_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_notes_on_application_id"
+  end
+
+  create_table "status_updates", force: :cascade do |t|
+    t.string "content"
+    t.date "date"
+    t.bigint "application_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_status_updates_on_application_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_155310) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "users"
+  add_foreign_key "notes", "applications"
+  add_foreign_key "status_updates", "applications"
 end
