@@ -3,14 +3,23 @@
 <%= @application.job_title %>
 <%= @application.location %>
 <%= @application.job_description %>
+<%= @application.application_status %>
+<%  @application.notes.each do |note| %>
+<%= note.title %>
+<%= note.content %>
+<%= note.date %>
+<% end %>
+
+
+<%= simple_form_for [@application, @note] do |f| %>
+<%= f.input :title %>
+<%= f.input :content %>
+<%= f.submit %>
+<% end %>
+
 
 <% @status_updates.each do |update| %>
   <%= update.content %>
   <%= update.date %>
 <% end %>
 
-<% @application.notes.each do |note| %>
-<%= note.title %>
-<%= note.content %>
-<%= note.date %>
-<% end %>
