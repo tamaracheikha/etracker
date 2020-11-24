@@ -6,10 +6,12 @@ class ApplicationsController < ApplicationController
     @appliction = Application.find(params[:id])
     @notes = @application.notes
   end
+
   def index
     @applications = Application.all
     @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
   end
+
   def new
     @application = Application.new
   end
