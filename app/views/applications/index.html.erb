@@ -1,0 +1,18 @@
+<h1>Your dashboard</h1>
+
+<div class="row">
+  <div class="col-3">
+    <h4>Saved</h4>
+    <h4>Applied</h4>
+    <h4>Interviewing</h4>
+    <h4>Offer</h4>
+  </div>
+  <%= @applications.each do |application| %>
+    <div class="col-3">
+      <div class="application-card">
+        <p><%= application.company_name %></p>
+        <p><%= application.job_title %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

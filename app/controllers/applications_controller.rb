@@ -1,8 +1,16 @@
 class ApplicationsController < ApplicationController
+
   def show
     @user = current_user
     @application = Application.find(params[:id])
     # @status_updates = StatusUpdate.where(application: @user.application)
+    @notes = @application.notes
+    @note = Note.new
+  end
+
+  def index
+    @applications = Application.all
+    @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
   end
 
   def new
