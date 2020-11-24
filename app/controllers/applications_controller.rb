@@ -2,6 +2,8 @@ class ApplicationsController < ApplicationController
   def show
     @user = current_user
     @application = Application.find(params[:id])
+    @status_updates = @application.status_updates
+
     # @status_updates = StatusUpdate.where(application: @user.application)
     @notes = @application.notes
     @note = Note.new
@@ -20,7 +22,7 @@ class ApplicationsController < ApplicationController
     @application.user = current_user
     @application.application_status = "Saved"
     if @application.save
-      Note.create(application: @application, date: Date.today, )
+      StatusUpdate.create(application: @application, date: Date.today, content: @application.application_status)
       redirect_to application_path(@application)
     else
       render :new
@@ -28,6 +30,6 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter)
+    params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter, :application_status)
   end
 end

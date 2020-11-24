@@ -10,10 +10,16 @@
 <%= note.date %>
 <% end %>
 
-<!-- add a type of form for someone to write down their notes -->
 
 <%= simple_form_for [@application, @note] do |f| %>
 <%= f.input :title %>
 <%= f.input :content %>
 <%= f.submit %>
 <% end %>
+
+
+<% @status_updates.each do |update| %>
+  <%= update.content %>
+  <%= update.date %>
+<% end %>
+
