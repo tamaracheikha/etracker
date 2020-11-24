@@ -4,6 +4,7 @@ class NotesController < ApplicationController
     @note = Note.new(notes_params)
     @application = Application.find(params[:application_id])
     @note.application = @application
+    @note.date = Date.today
     if @note.save
       redirect_to application_path(@application)
     else
@@ -17,6 +18,7 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
+    @note.date = Date.today
     if @note.update(notes_params)
       redirect_to application_path(@note.application)
     else

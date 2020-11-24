@@ -20,6 +20,7 @@ class ApplicationsController < ApplicationController
     @application.user = current_user
     @application.application_status = "Saved"
     if @application.save
+      Note.create(application: @application, date: Date.today, )
       redirect_to application_path(@application)
     else
       render :new

@@ -4,13 +4,16 @@
 <%= @application.location %>
 <%= @application.job_description %>
 <%= @application.application_status %>
-<% @application.notes.each do |note| %>
+<%  @application.notes.each do |note| %>
 <%= note.title %>
 <%= note.content %>
 <%= note.date %>
 <% end %>
-<%# @status_updates.each do |update| %>
-  <%#=  update.content%>
-  <%#=  update.date%>
-<%# end %>
 
+<!-- add a type of form for someone to write down their notes -->
+
+<%= simple_form_for [@application, @note] do |f| %>
+<%= f.input :title %>
+<%= f.input :content %>
+<%= f.submit %>
+<% end %>
