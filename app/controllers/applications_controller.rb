@@ -1,15 +1,14 @@
 class ApplicationsController < ApplicationController
-
-
   def show
     @note = Note.new
-    @appliction = Application.find(params[:id])
+    @application = Application.find(params[:id])
     @notes = @application.notes
   end
+
   def index
     @applications = Application.all
-    @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
   end
+
   def new
     @application = Application.new
   end
