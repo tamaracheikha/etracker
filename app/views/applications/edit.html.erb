@@ -1,0 +1,16 @@
+<div class="new-form-container">
+  <h1> Edit Job</h1>
+  <div class = "new-job-form">
+    <%= simple_form_for(@application) do |f| %>
+      <%= f.input :company_name, class: "form-control" %>
+      <%= f.input :company_link, class: "form-control" %>
+      <%= f.input :location, class: "form-control" %>
+      <%= f.input :job_title, class: "form-control" %>
+      <%= f.input :job_description, class: "form-control" %>
+      <%= f.input :cv, as: :file %>
+      <%= f.input :cover_letter, as: :file %>
+      <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
+      <%= f.button :submit, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

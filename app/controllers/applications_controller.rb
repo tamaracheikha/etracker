@@ -12,6 +12,19 @@ class ApplicationsController < ApplicationController
     @applications = Application.all
   end
 
+  def edit
+    @application = Application.find(params[:id])
+  end
+
+  def update
+    @application = Application.find(params[:id])
+    if @application.update(application_params)
+      redirect_to application_path(@application)
+    else
+      render :edit
+    end
+  end
+
   def new
     @application = Application.new
   end
@@ -27,6 +40,14 @@ class ApplicationsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @application = Application.find(params[:id])
+    @application.destroy
+    redirect_to applications_path
+  end
+
+  private
 
   def application_params
     params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter, :application_status)
