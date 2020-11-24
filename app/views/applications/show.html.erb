@@ -4,10 +4,11 @@
 <%= @application.location %>
 <%= @application.job_description %>
 <%= @application.application_status %>
-<%= @application.notes.title %>
-<%= @application.notes.content %>
-<%= @application.notes.date %>
-
+<% @application.notes.each do |note| %>
+<%= note.title %>
+<%= note.content %>
+<%= note.date %>
+<% end %>
 <%# @status_updates.each do |update| %>
   <%#=  update.content%>
   <%#=  update.date%>

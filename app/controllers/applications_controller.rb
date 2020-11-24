@@ -18,8 +18,9 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params)
     @application.user = current_user
+    @application.application_status = "Saved"
     if @application.save
-      redirect_to(@application)
+      redirect_to application_path(@application)
     else
       render :new
     end
