@@ -1,5 +1,11 @@
 class ApplicationsController < ApplicationController
 
+
+  def show
+    @note = Note.new
+    @appliction = Application.find(params[:id])
+    @notes = @application.notes
+  end
   def index
     @applications = Application.all
     @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
@@ -20,9 +26,5 @@ class ApplicationsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter)
-  end
-
-  def show
-    @application = Application.find(params[:id])
   end
 end
