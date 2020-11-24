@@ -1,0 +1,21 @@
+.status-card {
+  height: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 16px;
+}
+
+.application-card {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  border-radius: 8px;
+  line-height: 12px;
+  padding: 8px 10px;
+  margin: 12px 0px;
+  h5 {
+    font-weight: bolder;
+  }
+  p {
+    font-size: 14px;
+  }
+}
