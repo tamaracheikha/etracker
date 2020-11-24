@@ -1,4 +1,10 @@
 class ApplicationsController < ApplicationController
+  def show
+    @user = current_user
+    @application = Application.find(params[:id])
+    # @status_updates = StatusUpdate.where(application: @user.application)
+  end
+
   def new
     @application = Application.new
   end
@@ -7,7 +13,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @application.user = current_user
     if @application.save
-      redirect_to_application_path(@application)
+      redirect_to(@application)
     else
       render :new
     end
@@ -15,9 +21,5 @@ class ApplicationsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter)
-  end
-
-  def show
-    @application = Application.find(params[:id])
   end
 end
