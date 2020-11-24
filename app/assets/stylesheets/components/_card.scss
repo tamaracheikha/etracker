@@ -3,6 +3,13 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 16px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .application-card {
@@ -17,9 +24,5 @@
   }
   p {
     font-size: 14px;
-  }
-  a {
-    text-decoration: none;
-    color: black;
   }
 }
