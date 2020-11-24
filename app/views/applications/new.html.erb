@@ -9,9 +9,8 @@
       <%= f.input :job_description, class: "form-control" %>
       <%= f.input :cv, as: :file %>
       <%= f.input :cover_letter, as: :file %>
-      <%= f.submit "save", class:"button-primary" %>
       <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
-      <%= f.button :submit, class:"button-primary" %>
+      <%= f.button :submit, class:"btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -3,10 +3,9 @@ class ApplicationsController < ApplicationController
     @user = current_user
     @application = Application.find(params[:id])
     @status_updates = @application.status_updates
-
-    # @status_updates = StatusUpdate.where(application: @user.application)
     @notes = @application.notes
     @note = Note.new
+    @status_update = StatusUpdate.new
   end
 
   def index
