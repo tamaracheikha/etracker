@@ -3,6 +3,14 @@ class ApplicationsController < ApplicationController
     @user = current_user
     @application = Application.find(params[:id])
     @status_updates = @application.status_updates
+
+    # @status_updates = StatusUpdate.where(application: @user.application)
+    @notes = @application.notes
+    @note = Note.new
+  end
+
+  def index
+    @applications = Application.all
   end
 
   def new
@@ -12,6 +20,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params)
     @application.user = current_user
+    @application.application_status = "Saved"
     if @application.save
       StatusUpdate.create(application: @application, date: Date.today, content: @application.application_status)
       redirect_to application_path(@application)

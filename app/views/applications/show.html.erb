@@ -5,7 +5,12 @@
 <%= @application.job_description %>
 
 <% @status_updates.each do |update| %>
-  <%=  update.content%>
-  <%=  update.date%>
+  <%= update.content %>
+  <%= update.date %>
 <% end %>
 
+<% @application.notes.each do |note| %>
+<%= note.title %>
+<%= note.content %>
+<%= note.date %>
+<% end %>
