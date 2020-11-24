@@ -3,6 +3,20 @@
 <p><%= @application.job_title %></p>
 <p><em><%= @application.location %></em></p>
 <p><%= @application.job_description %></p>
+  <%  @application.notes.each do |note| %>
+  <%= note.title %>
+  <%= note.content %>
+  <%= note.date %>
+  <% end %>
+</div>
+
+<div class="container notes-form">
+  <%= simple_form_for [@application, @note] do |f| %>
+  <%= f.input :title %>
+  <p><%= f.input :content %></p>
+  <%= f.submit %>
+  <% end %>
+</div>
 
 <% @status_updates.each do |update| %>
  <p><%= update.content %>: <%= update.date %></p>
@@ -19,9 +33,3 @@
   </div>
 </div>
 
-
-<% @application.notes.each do |note| %>
-  <%= note.title %>
-  <%= note.content %>
-  <%= note.date %>
-<% end %>
