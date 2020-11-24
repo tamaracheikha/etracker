@@ -1,16 +1,27 @@
-<%= @application.company_name %>
-<%= @application.company_link %>
-<%= @application.job_title %>
-<%= @application.location %>
-<%= @application.job_description %>
+<h1><%= @application.company_name %></h1>
+<p><%= @application.company_link %></p>
+<p><%= @application.job_title %></p>
+<p><em><%= @application.location %></em></p>
+<p><%= @application.job_description %></p>
 
 <% @status_updates.each do |update| %>
-  <%= update.content %>
-  <%= update.date %>
+ <p><%= update.content %>: <%= update.date %></p>
 <% end %>
 
+<div class="new-form-container">
+  <h1> Add a Status Update</h1>
+  <div class = "new-status-update-form">
+    <%= simple_form_for([@application, @status_update]) do |f| %>
+      <%= f.input :content, class: "form-control" %>
+      <%= f.input :date, class: "form-control" %>
+      <%= f.button :submit, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
 <% @application.notes.each do |note| %>
-<%= note.title %>
-<%= note.content %>
-<%= note.date %>
+  <%= note.title %>
+  <%= note.content %>
+  <%= note.date %>
 <% end %>
