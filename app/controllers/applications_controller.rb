@@ -1,15 +1,18 @@
 class ApplicationsController < ApplicationController
 
-
   def show
-    @note = Note.new
-    @appliction = Application.find(params[:id])
+    @user = current_user
+    @application = Application.find(params[:id])
+    # @status_updates = StatusUpdate.where(application: @user.application)
     @notes = @application.notes
+    @note = Note.new
   end
+
   def index
     @applications = Application.all
     @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
   end
+
   def new
     @application = Application.new
   end
@@ -18,7 +21,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @application.user = current_user
     if @application.save
-      redirect_to_application_path(@application)
+      redirect_to(@application)
     else
       render :new
     end

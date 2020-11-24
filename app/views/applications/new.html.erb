@@ -3,14 +3,14 @@
   <div class = "new-job-form">
     <%= simple_form_for(@application) do |f| %>
       <%= f.input :company_name, class: "form-control" %>
-      <%= f.input :company_link, as: :file, input_html: { multiple: true } %>
+      <%= f.input :company_link, class: "form-control" %>
       <%= f.input :location, class: "form-control" %>
       <%= f.input :job_title, class: "form-control" %>
       <%= f.input :job_description, class: "form-control" %>
-     <!--  <%= f.input :cv, class: %>
-      <%= f.input :cover_letter, class: "form-control" %> -->
+      <%#= f.input :cv, class: %>
+      <%#= f.input :cover_letter, class: "form-control" %>
       <%= f.button :submit, class:"button-primary" %>
-      <%= f.button :save, class:"button-primary" %>
+      <%#= f.button :save, class:"button-primary" %>
     <% end %>
   </div>
 </div>
