@@ -1,5 +1,4 @@
 class ApplicationsController < ApplicationController
-
   def show
     @user = current_user
     @application = Application.find(params[:id])
@@ -10,7 +9,6 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.all
-    @statuses = ["Saved", "Applied", "Interviewing", "Offer"]
   end
 
   def new

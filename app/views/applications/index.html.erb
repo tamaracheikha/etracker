@@ -3,16 +3,46 @@
 <div class="row">
   <div class="col-3">
     <h4>Saved</h4>
-    <h4>Applied</h4>
-    <h4>Interviewing</h4>
-    <h4>Offer</h4>
-  </div>
-  <%= @applications.each do |application| %>
-    <div class="col-3">
-      <div class="application-card">
-        <p><%= application.company_name %></p>
-        <p><%= application.job_title %></p>
+      <div class="status-card">
+        <%= @applications.each do |application| %>
+          <% if application.application_status == "saved".capitalize %>
+            <p><%= application.company_name %></p>
+            <p><%= application.job_title %></p>
+          <% end %>
+        <% end %>
       </div>
+  </div>
+  <div class="col-3">
+    <h4>Applied</h4>
+    <div class="status-card">
+      <%= @applications.each do |application| %>
+        <% if application.application_status == "applied".capitalize %>
+            <p><%= application.company_name %></p>
+            <p><%= application.job_title %></p>
+          <% end %>
+        <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="col-3">
+    <h4>Interviewing</h4>
+    <div class="status-card">
+      <%= @applications.each do |application| %>
+        <% if application.application_status == "interviewing".capitalize %>
+            <p><%= application.company_name %></p>
+            <p><%= application.job_title %></p>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+  <div class="col-3">
+    <h4>Offer</h4>
+    <div class="status-card">
+      <%= @applications.each do |application| %>
+        <% if application.application_status == "offer".capitalize %>
+            <p><%= application.company_name %></p>
+            <p><%= application.job_title %></p>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
 </div>
