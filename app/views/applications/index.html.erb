@@ -1,12 +1,12 @@
 <div class="applications-container">
-<h1>Your dashboard</h1>
+<h1>Your Dashboard</h1>
 <div class="row">
   <div class="col">
     <h4>Saved</h4>
       <div class="status-card">
         <% @applications.where(application_status: "Saved").each do |application| %>
           <div class="application-card">
-            <h5><%= application.company_name %></h5>
+            <h5><%= link_to application.company_name, application_path(application) %></h5>
             <p><%= application.job_title %></p>
           </div>
         <% end %>
@@ -17,7 +17,7 @@
     <div class="status-card">
       <% @applications.where(application_status: "Applied").each do |application| %>
         <div class="application-card">
-          <p><%= application.company_name %></p>
+          <p><%= link_to application.company_name, application_path(application) %></p>
           <p><%= application.job_title %></p>
         </div>
       <% end %>
@@ -28,7 +28,7 @@
     <div class="status-card">
       <% @applications.where(application_status: "Interviewing").each do |application| %>
         <div class="application-card">
-          <p><%= application.company_name %></p>
+          <p><%= link_to application.company_name, application_path(application) %></p>
           <p><%= application.job_title %></p>
         </div>
       <% end %>
@@ -39,7 +39,7 @@
     <div class="status-card">
       <% @applications.where(application_status: "Offer").each do |application| %>
         <div class="application-card">
-          <p><%= application.company_name %></p>
+          <p><%= link_to application.company_name, application_path(application) %></p>
           <p><%= application.job_title %></p>
         </div>
       <% end %>
@@ -50,7 +50,7 @@
     <div class="status-card">
       <% @applications.where(application_status: "Rejected").each do |application| %>
         <div class="application-card">
-          <p><%= application.company_name %></p>
+          <p><%= link_to application.company_name, application_path(application) %></p>
           <p><%= application.job_title %></p>
         </div>
       <% end %>
