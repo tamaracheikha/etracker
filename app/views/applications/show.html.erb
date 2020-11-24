@@ -1,21 +1,24 @@
-<%= @application.company_name %>
-<%= @application.company_link %>
-<%= @application.job_title %>
-<%= @application.location %>
-<%= @application.job_description %>
-<%= @application.application_status %>
-<%  @application.notes.each do |note| %>
-<%= note.title %>
-<%= note.content %>
-<%= note.date %>
-<% end %>
+<div class="container">
+  <%= @application.company_name %>
+  <%= @application.company_link %>
+  <%= @application.job_title %>
+  <%= @application.location %>
+  <%= @application.job_description %>
+  <%= @application.application_status %>
+  <%  @application.notes.each do |note| %>
+  <%= note.title %>
+  <%= note.content %>
+  <%= note.date %>
+  <% end %>
+</div>
 
-
-<%= simple_form_for [@application, @note] do |f| %>
-<%= f.input :title %>
-<%= f.input :content %>
-<%= f.submit %>
-<% end %>
+<div class="container notes-form">
+  <%= simple_form_for [@application, @note] do |f| %>
+  <%= f.input :title %>
+  <p><%= f.input :content %></p>
+  <%= f.submit %>
+  <% end %>
+</div>
 
 
 <% @status_updates.each do |update| %>
