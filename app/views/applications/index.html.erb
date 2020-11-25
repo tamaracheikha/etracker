@@ -12,18 +12,17 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="applications" area-labelledby="applications-tab" role="tabpanel">
     <div class="row" data-controller="draggable">
-      <% %w(Saved Applied Interviewing Accepted Rejected).each do |status| %>
+      <% %w(Saved Applied Interviewing Offer Rejected).each do |status| %>
         <div class="col">
           <h5 class="card-title"><%= status %></h5>
           <div class="status-card">
             <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
               <% @applications.where(application_status: status).each do |application| %>
                   <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
-                    <%= link_to application_path(application) do %>
                       <h4><%= application.company_name %></h4>
                       <p><%= application.job_title %></p>
-                    <% end %>
-                  </li>
+                      <%= link_to 'See more', application_path(application) %>
+                    </li>
                 <% end %>
               </ul>
             </div>
