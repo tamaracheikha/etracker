@@ -76,7 +76,7 @@
         <div class=" container notes-form">
           <%= simple_form_for [@application, @note] do |f| %>
           <%= f.input :title %>
-          <p><%= f.input :content %></p>
+          <p><%= f.rich_text_area :rich_content %></p>
           <%= f.button :submit, class:"btn btn-primary"%>
           <% end %>
         </div>
