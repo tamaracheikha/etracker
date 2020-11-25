@@ -5,28 +5,24 @@
 <p><%= @application.job_description %></p>
 
 
-  <%  @application.notes.each do |note| %>
-  <%= note.title %>
-  <%= note.content %>
-  <%= note.date %>
-  <% end %>
-
-
-
-<% @status_updates.each do |update| %>
- <p><%= update.content %>: <%= update.date %></p>
-<% end %>
-
-<div class="new-form-container">
-  <h1> Add a Status Update</h1>
-  <div class = "new-status-update-form">
-    <%= simple_form_for([@application, @status_update]) do |f| %>
-      <%= f.input :content, class: "form-control" %>
-      <%= f.input :date, class: "form-control" %>
-      <%= f.button :submit, class:"btn btn-primary" %>
+  <div class="timeline">
+    <% @application.notes.order(date: :desc).each do |note| %>
+      <div class= "timeline-note" type="button" data-toggle="modal" data-target="#edit_<%= dom_id(note) %>" data-tippy="<%= note.title %> <%= note.date %>" data-placement="right"></div>
+      <div class="modal fade bd-example-modal-lg" id="edit_<%= dom_id(note) %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <%= simple_form_for note do |f| %>
+              <%= f.input :title %>
+              <%= f.input :content %>
+              <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+            <%= note.date %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
+
 <%= link_to "Edit Application", edit_application_path(@application)  %>
 <%= link_to "Delete Application", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%>
 
