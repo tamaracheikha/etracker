@@ -35,7 +35,6 @@
       <div class=" container notes-form">
         <%= simple_form_for [@application, @reminder] do |f| %>
         <%= f.input :title %>
-        <p><%= f.input :description %></p>
         <p><%= f.input :scheduled_date %></p>
         <%= f.button :submit, class:"btn btn-primary"%>
         <% end %>
@@ -43,4 +42,6 @@
     </div>
   </div>
 </div>
+
+
 

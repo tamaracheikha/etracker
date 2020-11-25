@@ -5,7 +5,6 @@ class ApplicationsController < ApplicationController
     @status_updates = @application.status_updates
     @notes = @application.notes
     @note = Note.new
-    @status_update = StatusUpdate.new
     @reminder = Reminder.new
   end
 
