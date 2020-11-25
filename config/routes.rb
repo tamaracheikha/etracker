@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :applications do
     resources :notes, only: [:create]
-    resources :reminders, only:[:create, :update]
+    resources :reminders, only:[:create]
   end
   resources :notes, only: [:update, :destroy]
-  resources :reminders, only:[:destroy]
+  resources :reminders, only:[:destroy, :update]
 end
 
