@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_115126) do
+ActiveRecord::Schema.define(version: 2020_11_25_145852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 2020_11_25_115126) do
     t.date "scheduled_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "application_id"
+    t.index ["application_id"], name: "index_reminders_on_application_id"
+    t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
   create_table "status_updates", force: :cascade do |t|
@@ -91,5 +95,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_115126) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "users"
   add_foreign_key "notes", "applications"
+  add_foreign_key "reminders", "applications"
+  add_foreign_key "reminders", "users"
   add_foreign_key "status_updates", "applications"
 end

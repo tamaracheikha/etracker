@@ -6,6 +6,7 @@ class ApplicationsController < ApplicationController
     @notes = @application.notes
     @note = Note.new
     @status_update = StatusUpdate.new
+    @reminder = Reminder.new
   end
 
   def index
