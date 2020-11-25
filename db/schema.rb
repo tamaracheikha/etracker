@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_143159) do
+ActiveRecord::Schema.define(version: 2020_11_25_115126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 2020_11_24_143159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["application_id"], name: "index_notes_on_application_id"
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "scheduled_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "status_updates", force: :cascade do |t|
