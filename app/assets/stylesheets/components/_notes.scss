@@ -1,3 +1,9 @@
-.notes-form {
-  // width: 350px;
+.timeline-note {
+  width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+    /* position: relative; */
+    transform: translate(-50%, 0);
+    margin-bottom: 50px;
 }

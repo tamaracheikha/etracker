@@ -24,6 +24,9 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import {initTippy} from "./components/init_tippy"
+import 'tippy.js/themes/light-border.css';
+import 'tippy.js/dist/tippy.css';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,6 +34,7 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initTippy()
 });
 
 import "controllers";
