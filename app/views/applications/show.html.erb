@@ -19,6 +19,16 @@
             <p><%= @application.job_description %></p>
           </div>
 
+  <div class="timeline">
+    <% @application.reminders.order(scheduled_date: :desc).each do |reminder| %>
+      <div class= "timeline-note" type="button" data-toggle="modal" data-target="#edit_<%= dom_id(reminder) %>" data-tippy="<%= reminder.title %> <%= reminder.scheduled_date %>" data-placement="right"></div>
+      <div class="modal fade bd-example-modal-lg" id="edit_<%= dom_id(reminder) %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <%= simple_form_for reminder do |f| %>
+              <%= f.input :title %>
+              <%= f.input :scheduled_date %>
+              <%= f.submit class: 'btn btn-primary' %>
           <div class="modal fade bd-example-modal-lg create-reminder-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">

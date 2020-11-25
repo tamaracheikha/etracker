@@ -15,6 +15,13 @@ class RemindersController < ApplicationController
     end
   end
 
+  def update
+    @reminder = Reminder.find(params[:id])
+    @application = @reminder.application
+    @reminder.update(reminder_params)
+    redirect_to application_path(@application)
+  end
+
   private
 
   def reminder_params
