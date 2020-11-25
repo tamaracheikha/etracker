@@ -1,4 +1,9 @@
 .applications-container {
   padding: 8px;
-  margin: 8px;
+  margin: 16px;
+  ul {
+    list-style: none;
+    list-style-position: inside;
+    padding-left: 0;
+  }
 }

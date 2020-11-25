@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import {initTippy} from "./components/init_tippy"
+import {initTippy} from "./components/init_tippy";
 import 'tippy.js/themes/light-border.css';
 import 'tippy.js/dist/tippy.css';
 
