@@ -28,6 +28,7 @@ class ApplicationsController < ApplicationController
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
+  end
 
     # @application = Application.find(params[:id])
     # if @application.update(application_params)
@@ -35,7 +36,7 @@ class ApplicationsController < ApplicationController
     # else
     #   render :edit
     # end
-  end
+
 
   def new
     @application = Application.new
