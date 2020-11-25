@@ -18,11 +18,22 @@ class ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
-    if @application.update(application_params)
-      redirect_to application_path(@application)
-    else
-      render :edit
+    respond_to do |format|
+      if @application.update(application_params)
+        format.html { redirect_to application_path(@application), notice: 'Application was successfully updated.' }
+        format.json {}
+      else
+        format.html { render :edit }
+        format.json { render json: @application.errors, status: :unprocessable_entity }
+      end
     end
+
+    # @application = Application.find(params[:id])
+    # if @application.update(application_params)
+    #   redirect_to application_path(@application)
+    # else
+    #   render :edit
+    # end
   end
 
   def new

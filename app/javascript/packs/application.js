@@ -36,3 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initTippy()
 });
+
+import "controllers";
