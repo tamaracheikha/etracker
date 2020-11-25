@@ -1,70 +1,26 @@
+<!-- <style>
+  ul {
+   list-style: none;
+  }
+</style> -->
 <div class="applications-container">
-<h1>Your Dashboard</h1>
-<div class="row">
-  <div class="col">
-    <h4>Saved</h4>
-      <div class="status-card">
-        <% @applications.where(application_status: "Saved").each do |application| %>
-            <%= link_to application_path(application) do %>
-              <div class="application-card">
-                <h5><%= application.company_name %></h5>
-                <p><%= application.job_title %></p>
-              </div>
+  <h1>Your Dashboard</h1>
+  <div class="row" data-controller="draggable">
+    <% %w(Saved Applied Interviewing Accepted Rejected).each do |status| %>
+      <div class="col">
+        <h5 class="card-title"><%= status %></h5>
+        <div class="status-card">
+          <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
+            <% @applications.where(application_status: status).each do |application| %>
+              <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
+                <%= application.company_name %>
+                <%= application.job_title %>
+              </li>
             <% end %>
-        <% end %>
+          </ul>
+        </div>
       </div>
-  </div>
-  <div class="col">
-    <h4>Applied</h4>
-    <div class="status-card">
-      <% @applications.where(application_status: "Applied").each do |application| %>
-        <%= link_to application_path(application) do %>
-          <div class="application-card">
-            <h5><%= application.company_name %></h5>
-            <p><%= application.job_title %></p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col">
-    <h4>Interviewing</h4>
-    <div class="status-card">
-      <% @applications.where(application_status: "Interviewing").each do |application| %>
-        <%= link_to application_path(application) do %>
-          <div class="application-card">
-            <h5><%= application.company_name %></h5>
-            <p><%= application.job_title %></p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col">
-    <h4>Offer</h4>
-    <div class="status-card">
-      <% @applications.where(application_status: "Interviewing").each do |application| %>
-        <%= link_to application_path(application) do %>
-          <div class="application-card">
-            <h5><%= application.company_name %></h5>
-            <p><%= application.job_title %></p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col">
-    <h4>Rejected</h4>
-    <div class="status-card">
-      <% @applications.where(application_status: "Interviewing").each do |application| %>
-        <%= link_to application_path(application) do %>
-          <div class="application-card">
-            <h5><%= application.company_name %></h5>
-            <p><%= application.job_title %></p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
-</div>
+
