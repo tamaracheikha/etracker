@@ -41,3 +41,14 @@
     </div>
   </div>
 </div>
+
+<div class="new-reminder-container">
+  <h1> Add a Reminder</h1>
+  <div class = "new-job-form">
+    <%= simple_form_for([@application, @reminder]) do |f| %>
+      <%= f.input :title, class: "form-control" %>
+      <%= f.input :scheduled_date, as: :date, html5: true,class: "form-control" %>
+    <% end %>
+  </div>
+</div>
+
