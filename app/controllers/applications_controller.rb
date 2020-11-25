@@ -10,6 +10,7 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.all
+    @reminders = Reminder.all
   end
 
   def edit

@@ -1,26 +1,49 @@
-<!-- <style>
-  ul {
-   list-style: none;
-  }
-</style> -->
 <div class="applications-container">
-  <h1>Your Dashboard</h1>
-  <div class="row" data-controller="draggable">
-    <% %w(Saved Applied Interviewing Accepted Rejected).each do |status| %>
-      <div class="col">
-        <h5 class="card-title"><%= status %></h5>
-        <div class="status-card">
-          <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
-            <% @applications.where(application_status: status).each do |application| %>
-              <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
-                <%= application.company_name %>
-                <%= application.job_title %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" data-toggle="tab" id="applications-tab" href="#applications" role="tab" area-controls="applications" area-selected="true" >My Applications</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" data-toggle="tab" id="reminders-tab" href="#reminders" role="tab" area-controls="reminders" area-selected="false" >My Reminders</a>
+    </li>
+  </ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="applications" area-labelledby="applications-tab" role="tabpanel">
+    <div class="row" data-controller="draggable">
+      <% %w(Saved Applied Interviewing Accepted Rejected).each do |status| %>
+        <div class="col">
+          <h5 class="card-title"><%= status %></h5>
+          <div class="status-card">
+            <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
+              <% @applications.where(application_status: status).each do |application| %>
+                  <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
+                    <%= link_to application_path(application) do %>
+                      <h4><%= application.company_name %></h4>
+                      <p><%= application.job_title %></p>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
+  <div class="tab-pane fade" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
+      <% @reminders.each do |reminder| %>
+        <div class="row">
+          <h4><%= reminder.title %></h4>
+          <p><%= reminder.description %></p>
+          <p><%= reminder.scheduled_date %></p>
+        </div>
+      <% end %>
   </div>
+
+</div>
+
+
 </div>
 
