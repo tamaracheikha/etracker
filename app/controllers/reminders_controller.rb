@@ -5,13 +5,24 @@ class RemindersController < ApplicationController
 
   def create
     @reminder = Reminder.new(reminder_params)
-    @application = Application.find(params[:application_id])
-    @reminder.application = @application
-    @reminder.user = current_user
-    if @reminder.save
-      redirect_to application_path(@application)
+    if reminder_params.include?("application_id")
+      @application = Application.find(reminder_params[:application_id])
+      @reminder.application = @application
+      @reminder.user = current_user
+      if @reminder.save
+        redirect_to application_path(@application)
+      else
+        render "applications/show"
+      end
     else
-      render "applications/show"
+      @application = Application.find(params[:application_id])
+      @reminder.application = @application
+      @reminder.user = current_user
+      if @reminder.save
+        redirect_to application_path(@application)
+      else
+        render "applications/show"
+      end
     end
   end
 
@@ -25,6 +36,6 @@ class RemindersController < ApplicationController
   private
 
   def reminder_params
-    params.require(:reminder).permit(:title, :description, :scheduled_date)
+    params.require(:reminder).permit(:title, :description, :scheduled_date, :application_id)
   end
 end

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :reminders, only:[:create]
   end
   resources :notes, only: [:update, :destroy]
-  resources :reminders, only:[:destroy, :update]
+  resources :reminders, only:[:destroy, :update, :create]
 end
 

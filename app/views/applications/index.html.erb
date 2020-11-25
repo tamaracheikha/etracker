@@ -39,6 +39,24 @@
           <p><%= reminder.scheduled_date %></p>
         </div>
       <% end %>
+
+<button type="button" class="text-underline notes-button" data-toggle="modal" data-target=".create-modal">+ Add Reminder</button>
+  <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class=" container notes-form">
+        <%= simple_form_for @reminder do |f| %>
+        <%= f.input :title %>
+        <%= f.association :application, label_method: :company_name %>
+        <p><%= f.input :scheduled_date %></p>
+        <%= f.button :submit, class:"btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   </div>
 
 </div>
