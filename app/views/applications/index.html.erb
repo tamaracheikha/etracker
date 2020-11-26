@@ -46,13 +46,11 @@
     <div class="reminders-container">
       <% @reminders.each do |reminder| %>
         <div class="row">
-          <div class="reminders-card d-flex justify-content-around">
-            <p><strong><%= reminder.title %></strong></p>
+          <div class="reminders-card d-flex justify-content-between">
+            <p id="reminder-title"><strong><%= reminder.title %></strong></p>
             <p><%= reminder.description %></p>
-            <p><%= reminder.application.pretty_name%></p>
-            <div class="d-flex justify-content-around" id="date-reminder">
-              <p><%= reminder.scheduled_date%></p>
-            </div>
+            <p id="pretty-name"><%= reminder.application.pretty_name%></p>
+            <p><%= reminder.scheduled_date%></p>
           </div>
         </div>
       <% end %>

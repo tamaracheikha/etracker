@@ -1,6 +1,6 @@
 .status-card {
   height: 100%;
-  background-color: #F8F9F9;
+  background-color: white;
   padding: 5px 8px;
   font-family: 'Montserrat', sans-serif;
   display: flex;
@@ -72,6 +72,9 @@
     }
 }
 
+.add-job{
+  width:500px;
+}
 .row.card-title {
   margin-right: 0;
   margin-left: 0;
@@ -87,8 +90,60 @@
   z-index: 1000;
 }
 
-#date-reminder{
-  width:80px;
-  margin-left:80px;
+#reminder-title{
+  width:160px;
+}
+
+#pretty-name{
+  padding-right:100px;
+  margin-left:0px!important;
+}
+
+.feature-cards{
+  padding:0px 16px;
+  height:500px;
+}
+
+.card-feature {
+  height:250px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin:32px 16px;
+}
+
+.card-feature > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-feature h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-feature p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+
+}
+
+
+.card-feature .card-feature-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-feature-infos .card-feature-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
 
