@@ -35,3 +35,18 @@
 .card-title {
   margin-top: 20px;
 }
+
+.reminders-card{
+    background-color: white;
+  border-radius: 8px;
+  width:100%;
+  padding: 8px 10px;
+  margin: 12px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  h4 {
+    font-weight: bolder;
+  }
+  p {
+    font-size: 14px;
+  }
+}

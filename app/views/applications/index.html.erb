@@ -32,15 +32,24 @@
       </div>
 
   <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
+      <div class="reminder-button-container d-flex justify-content-around mt-3">
+        <div class="m-0">
+          <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index">+ Add Reminder</button>
+        </div>
+      </div>
+    <div class="reminders-container">
       <% @reminders.each do |reminder| %>
         <div class="row">
-          <h4><%= reminder.title %></h4>
-          <p><%= reminder.description %></p>
-          <p><%= reminder.scheduled_date %></p>
+          <div class="reminders-card d-flex justify-content-around">
+            <p><strong><%= reminder.title %></strong></p>
+            <p><%= reminder.description %></p>
+            <p><%= reminder.application.pretty_name%></p>
+            <p><%= reminder.scheduled_date%></p>
+          </div>
         </div>
       <% end %>
+    </div>
 
-    <button type="button" class="text-underline notes-button" data-toggle="modal" data-target=".create-modal">+ Add Reminder</button>
       <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
