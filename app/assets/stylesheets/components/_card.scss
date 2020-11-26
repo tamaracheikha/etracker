@@ -41,7 +41,8 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.reminders-card{
+
+.reminders-card {
   background-color: white;
   border-radius: 8px;
   width:100%;
@@ -76,6 +77,14 @@
   margin-left: 0;
   justify-content: space-around;
   text-align: center;
+  h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #000C0E;
+  }
+}
+
+.z-index {
+  z-index: 1000;
 }
 
 #date-reminder{
