@@ -3,8 +3,15 @@
     height: 15px;
     background: red;
     border-radius: 50%;
-    /* position: relative; */
     transform: translate(-50%, 0);
     margin-bottom: 50px;
 
+}
+
+#notes-content {
+  padding: 8px;
+  margin-top: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
 }
