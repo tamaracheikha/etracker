@@ -8,4 +8,9 @@ class Application < ApplicationRecord
   has_many :reminders
   STATUSES = ["Saved", "Applied", "Interviewing", "Offer", "Rejected"]
   validates :application_status, inclusion: { in: STATUSES }
+
+  def pretty_name
+    "#{company_name} - #{job_title}"
+  end
+
 end
