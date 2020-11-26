@@ -1,7 +1,7 @@
 .add-notes-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
   padding: 8px 16px;
   color: white;
@@ -13,7 +13,7 @@
 .reminder-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius:8px;
+  border-radius:4px;
   border: none;
   padding:8px 16px;
   color:white;
@@ -33,11 +33,22 @@
 #reminder-button-index{
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius:8px;
+  border-radius:4px;
   border: none;
   padding:8px 16px;
   color:white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+}
+
+.submit-button{
+  background-color: #D9455F;
+  padding:8px 16px;
+  margin-top:8px;
+  color:white;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  border-radius: 4px;
+  width:100%;
 }
 
 // PLEASE DONT COMMENT THIS OUT!!!!!
