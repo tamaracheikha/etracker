@@ -43,7 +43,11 @@
           <div>
             <% @application.notes.each do |note| %>
               <h5><strong><%= note.title %></strong> at: <%= note.date %></h5>
-              <p>Content: <%= note.content %></p>
+              <p>Content: <%= note.rich_content %></p>
+              <%= link_to edit_note_path(note) do %>
+                <%= fa_icon "edit" %>
+              <% end %>
+              <%= link_to "X", note_path(note), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%>
             <% end %>
           </div>
           <button type="button" class="text-underline notes-button" data-toggle="modal" data-target=".create-note-modal">+ Add New Note</button>
