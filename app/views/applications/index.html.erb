@@ -15,7 +15,10 @@
         <% { "Saved" => content_tag(:i, "", class: "far fa-star"), "Applied" => content_tag(:i, "", class: "far fa-file"), "Interviewing" => content_tag(:i, "", class: "fas fa-phone"), "Offer" => content_tag(:i, "", class: "fas fa-medal"), "Rejected" => content_tag(:i, "", class: "far fa-thumbs-down") }.each do |status, icon| %>
           <div class="col">
             <div class="status-card">
-              <h6 class="card-title"><%= status %> <%= icon %></h6>
+              <div class="row card-title">
+                <h6><%= status %></h6>
+                <h5><%= icon %></h5>
+              </div>
               <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
                 <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
