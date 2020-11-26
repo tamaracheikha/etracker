@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" id="home">
+  <div class="d-flex home-page">
+    <div class="video-container">
+      <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home-video" %>
+    </div>
+    <div class="d-flex justify-content-around sign-up">
+      <div class="card sign-up">
+        <h2>Sign up</h2>
+        <%= simple_form_for(User.new, url: new_user_registration_path) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+          </div>
+          <%= f.button :submit, "Sign up" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
