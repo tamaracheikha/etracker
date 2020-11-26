@@ -47,7 +47,9 @@
             <p><strong><%= reminder.title %></strong></p>
             <p><%= reminder.description %></p>
             <p><%= reminder.application.pretty_name%></p>
-            <p><%= reminder.scheduled_date%></p>
+            <div class="d-flex justify-content-around" id="date-reminder">
+              <p><%= reminder.scheduled_date%></p>
+            </div>
           </div>
         </div>
       <% end %>
