@@ -1,14 +1,24 @@
-.notes-button {
-  border: none;
-  border-bottom: 2px solid black;
+.add-notes-button {
+  background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  margin-top: 45px;
+  margin-left: 50%;
 }
 
 .reminder-button {
-  border: none;
-  border-bottom: 2px solid black;
-  margin-bottom: 20%;
+  background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
+  border-radius:8px;
+  border: none;
+  padding:8px 16px;
+  color:white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  margin-top: 50px;
 }
 
 .timeline {
@@ -17,6 +27,7 @@
   border: 2px solid #BFBFBF;
   background-color: #BFBFBF;
   margin-left: 50%;
+  margin-top: 15px;
 }
 
 #reminder-button-index{
@@ -28,3 +39,11 @@
   color:white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
 }
+
+// PLEASE DONT COMMENT THIS OUT!!!!!
+
+// border: none;
+//   border-bottom: 2px solid black;
+//   margin-bottom: 20%;
+//   font-family: 'Montserrat', sans-serif;
+//   background-color: transparent;
