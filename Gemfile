@@ -43,6 +43,7 @@ end
 
 #CV and cover_letter upload
 gem 'cloudinary', '~> 1.16.0'
+gem "font-awesome-rails"
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
