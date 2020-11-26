@@ -17,10 +17,8 @@
     <div class="page-container">
       <%= render "shared/navbar" %>
       <% unless action_name == 'home' %>
-        <div style="height: 80px;"></div>
       <% end %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
     <div class="footer-container"><%= render "shared/footer" %></div>
   </body>
