@@ -30,9 +30,9 @@
         <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
           <div>
             <% @application.notes.each do |note| %>
-              <div class="card" style="width: 30rem;" id="notes-content">
+              <div class="card" style="width: 40rem;" id="notes-content">
                 <div class="d-flex justify-content-start align-items-center symbols">
-                  <h5 class="mr-2"><strong><%= note.title %></strong></h5><h6>at: <%= note.date %></h6>
+                  <h5 class="mr-2"><u><%= note.title %></u></h5><h6>at: <%= note.date %></h6>
                   <h6><%= link_to edit_note_path(note) do %></h6>
                   <h6><%= fa_icon "edit" %></h6>
                   <% end %>
