@@ -2,15 +2,15 @@
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" data-toggle="tab" id="applications-tab" href="#applications" role="tab" area-controls="applications" area-selected="true" >My Applications</a>
+      <a class="nav-link <%= "active" unless params[:reminder] %>" data-toggle="tab" id="applications-tab" href="#applications" role="tab" area-controls="applications" area-selected="true" >My Applications</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" data-toggle="tab" id="reminders-tab" href="#reminders" role="tab" area-controls="reminders" area-selected="false" >My Reminders</a>
+      <a class="nav-link <%= "active" if params[:reminder] %>" data-toggle="tab" id="reminders-tab" href="#reminders" role="tab" area-controls="reminders" area-selected="false" >My Reminders</a>
     </li>
   </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="applications" area-labelledby="applications-tab" role="tabpanel">
+  <div class="tab-pane fade <%= "active show" unless params[:reminder] %>" id="applications" area-labelledby="applications-tab" role="tabpanel">
     <div class="row" data-controller="draggable">
       <% %w(Saved Applied Interviewing Offer Rejected).each do |status| %>
         <div class="col">
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-  <div class="tab-pane fade" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
+  <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
       <% @reminders.each do |reminder| %>
         <div class="row">
           <h4><%= reminder.title %></h4>
@@ -47,7 +47,7 @@
       <div class=" container notes-form">
         <%= simple_form_for @reminder do |f| %>
         <%= f.input :title %>
-        <%= f.association :application, label_method: :company_name %>
+        <%= f.association :application, label_method: :pretty_name %>
         <p><%= f.input :scheduled_date %></p>
         <%= f.button :submit, class:"btn btn-primary"%>
         <% end %>

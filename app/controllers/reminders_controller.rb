@@ -10,7 +10,7 @@ class RemindersController < ApplicationController
       @reminder.application = @application
       @reminder.user = current_user
       if @reminder.save
-        redirect_to application_path(@application)
+        redirect_to applications_path(reminder: true)
       else
         render "applications/show"
       end
