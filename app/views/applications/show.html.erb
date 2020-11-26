@@ -19,8 +19,8 @@
               <% end %>
               <h2><%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%></h2>
             </div>
+            <p>Title: <%= @application.job_title %></p>
             <p><%= @application.company_link %></p>
-            <p><%= @application.job_title %></p>
             <p><em><%= @application.location %></em></p>
             <p><%= @application.application_status %></p>
             <p><%= @application.job_description %></p>
