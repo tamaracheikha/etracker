@@ -19,8 +19,11 @@
             <p><%= @application.application_status %></p>
             <p><%= @application.job_description %></p>
           </div>
-          <%= link_to "Edit Application", edit_application_path(@application)  %>
-          <%= link_to "Delete Application", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%>
+          <%= link_to edit_application_path(@application) do %>
+            <%= fa_icon "edit" %>
+          <% end %>
+
+          <%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%>
 
           <div class="modal fade bd-example-modal-lg create-reminder-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -44,6 +47,7 @@
             <% end %>
           </div>
           <button type="button" class="text-underline notes-button" data-toggle="modal" data-target=".create-note-modal">+ Add New Note</button>
+
         </div>
       </div>
     </div>
