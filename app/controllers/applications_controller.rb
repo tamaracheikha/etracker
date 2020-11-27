@@ -12,6 +12,7 @@ class ApplicationsController < ApplicationController
     @applications = Application.all
     @reminders = Reminder.all
     @reminder = Reminder.new
+    @application = Application.new
   end
 
   def edit
