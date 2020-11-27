@@ -1,3 +1,16 @@
+.button{
+  background-color: #D9455F;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 4px;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  transition: background 0.3s ease;
+  } .button:hover {
+    background-color: #EA2361;
+  }
+
 .add-notes-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;

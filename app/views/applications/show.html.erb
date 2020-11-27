@@ -92,7 +92,9 @@
           <%= simple_form_for [@application, @note] do |f| %>
           <%= f.input :title %>
           <p><%= f.rich_text_area :rich_content %></p>
-          <%= f.button :submit, class:"btn btn-primary"%>
+          <div class="submit-button-container d-flex justify-content-around">
+            <%= f.button :submit, class:"button"%>
+          </div>
           <% end %>
         </div>
       </div>
@@ -106,7 +108,9 @@
         <%= simple_form_for [@application, @reminder] do |f| %>
         <%= f.input :title %>
         <p><%= f.input :scheduled_date %></p>
-        <%= f.button :submit, class:"btn btn-primary"%>
+        <div class="submit-button-container d-flex justify-content-around">
+          <%= f.button :submit, class:"button"%>
+        </div>
         <% end %>
       </div>
     </div>
