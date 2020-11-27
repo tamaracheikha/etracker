@@ -6,7 +6,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <a class="nav-link" href="/applications/new">Add an Application</a>
+          <button type="button" class="nav-link" id="navbar-button" data-toggle="modal" data-target=".create-application-modal">Add an Application</button>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://ca.slack-edge.com/T02NE0241-U01BY9Z3RC2-c838a5e61912-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -24,3 +24,28 @@
   </div>
   </div>
 <% end %>
+
+<div class="modal fade bd-example-modal-lg create-application-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class=" container application-form">
+        <div class="d-flex justify-content-around pb-3">
+          <h2>Add an Application</h2>
+        </div>
+        <%= simple_form_for(@application) do |f| %>
+          <%= f.input :company_name, class: "form-control" %>
+          <%= f.input :company_link, class: "form-control" %>
+          <%= f.input :location, class: "form-control" %>
+          <%= f.input :job_title, class: "form-control" %>
+          <%= f.input :job_description, class: "form-control" %>
+          <%= f.input :cv, as: :file %>
+          <%= f.input :cover_letter, as: :file %>
+          <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
+          <div>
+            <%= f.button :submit, class:"submit-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,15 @@
     background-color: #EA2361;
   }
 
+#navbar-button{
+  background-color: transparent;
+  color:white;
+  text-decoration: none;
+  border:none;
+} #navbar-button:hover{
+    border:none;
+}
+
 .add-notes-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
