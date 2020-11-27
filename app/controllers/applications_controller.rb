@@ -9,8 +9,8 @@ class ApplicationsController < ApplicationController
   end
 
   def index
-    @applications = Application.all
-    @reminders = Reminder.all
+    @applications = current_user.applications
+    @reminders = current_user.reminders
     @reminder = Reminder.new
     @application = Application.new
   end
