@@ -27,7 +27,12 @@
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
                         <h6><%= application.company_name %></h6>
                         <p><%= application.job_title %></p>
-                        <%= link_to 'See more', application_path(application), class: "z-index" %>
+                        <div class="date-icon">
+                          <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
+                          <%= link_to application_path(application), class: "z-index" do %>
+                            <%= fa_icon "long-arrow-alt-right", class: "icon arrow" %>
+                          <% end %>
+                        </div>
                       </li>
                   <% end %>
                 </ul>

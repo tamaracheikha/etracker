@@ -9,3 +9,15 @@
 .icon.add:hover {
   color: #15A9BA;
 }
+.icon.arrow {
+  color: #19CAC9;
+  transition: background 0.3s ease;
+}
+.icon.arrow:hover {
+  color: #15A9BA;
+}
+
+.date-icon {
+  display: flex;
+  justify-content: space-between;
+}
