@@ -53,8 +53,9 @@
               </div>
             <% end %>
           </div>
+          <div class="d-flex justify-content-around">
           <button type="button" class="text-underline add-notes-button btn-block mb-4 w-50" data-toggle="modal" data-target=".create-note-modal">+ Add New Note</button>
-
+          </div>
         </div>
       </div>
     </div>
@@ -92,7 +93,9 @@
           <%= simple_form_for [@application, @note] do |f| %>
           <%= f.input :title %>
           <p><%= f.rich_text_area :rich_content %></p>
-          <%= f.button :submit, class:"btn btn-primary"%>
+          <div class="submit-button-container d-flex justify-content-around mb-4">
+            <%= f.button :submit, class:"button"%>
+          </div>
           <% end %>
         </div>
       </div>
@@ -102,11 +105,13 @@
 <div class="modal fade bd-example-modal-lg create-reminder-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class=" container notes-form">
+      <div class=" container reminder-form">
         <%= simple_form_for [@application, @reminder] do |f| %>
         <%= f.input :title %>
         <p><%= f.input :scheduled_date %></p>
-        <%= f.button :submit, class:"btn btn-primary"%>
+        <div class="submit-button-container d-flex justify-content-around mb-4">
+          <%= f.button :submit, class:"button"%>
+        </div>
         <% end %>
       </div>
     </div>
