@@ -1,4 +1,4 @@
-.button{
+.button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
   border-radius: 4px;
@@ -10,15 +10,16 @@
   } .button:hover {
     background-color: #EA2361;
     text-decoration:none;
+    color: white;
   }
 
 #navbar-button{
   background-color: transparent;
-  color:white;
+  color: white;
   text-decoration: none;
   border:none;
 } #navbar-button:hover{
-    border:none;
+    border: none;
 }
 
 .add-notes-button {
