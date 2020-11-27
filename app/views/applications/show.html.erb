@@ -43,11 +43,11 @@
             <% @application.notes.each do |note| %>
               <div class="card" id="notes-content">
                 <div class="d-flex justify-content-start align-items-center symbols">
-                  <h5 class="mr-2"><u><%= note.title %></u></h5><h6>at: <%= note.date %></h6>
-                  <h6><%= link_to edit_note_path(note) do %></h6>
-                  <h6><%= fa_icon "edit" %></h6>
+                  <h5 class="mr-2"><%= note.title %></h5><p><em><%= note.date.strftime("%B %e, %Y") %></em></p>
+                  <p><%= link_to edit_note_path(note) do %></p>
+                  <p><%= fa_icon "edit" %></p>
                   <% end %>
-                  <h6><%= link_to "X", note_path(note), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%></h6>
+                  <p><%= link_to "X", note_path(note), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%></p>
                  </div>
                 <p><%= note.rich_content %></p>
               </div>
