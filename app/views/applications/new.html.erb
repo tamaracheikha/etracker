@@ -1,5 +1,8 @@
-<div class="new-form-container">
-  <h1> Add a Job</h1>
+<div class="new-form-container d-flex justify-content-around">
+  <div class="add-job">
+     <div class="d-flex justify-content-around">
+       <h2>Add a Job</h2>
+     </div>
   <div class = "new-job-form">
     <%= simple_form_for(@application) do |f| %>
       <%= f.input :company_name, class: "form-control" %>
@@ -10,7 +13,10 @@
       <%= f.input :cv, as: :file %>
       <%= f.input :cover_letter, as: :file %>
       <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
-      <%= f.button :submit, class:"btn btn-primary" %>
+      <div>
+        <%= f.button :submit, class:"submit-button" %>
+      </div>
     <% end %>
+  </div>
   </div>
 </div>
