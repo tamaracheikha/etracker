@@ -8,6 +8,9 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   margin-top: 45px;
   margin-left: 50%;
+  transition: background 0.3s ease;
+} .add-notes-button:hover {
+  background-color: #EA2361;
 }
 
 .reminder-button {
@@ -19,6 +22,9 @@
   color:white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   margin-top: 50px;
+  transition: background 0.3s ease;
+} .reminder-button:hover {
+  background-color: #EA2361;
 }
 
 .timeline {
@@ -30,7 +36,7 @@
   margin-top: 15px;
 }
 
-#reminder-button-index{
+#reminder-button-index {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
   border-radius:4px;
@@ -38,17 +44,22 @@
   padding:8px 16px;
   color:white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  transition: background 0.3s ease;
+} #reminder-button-index:hover {
+  background-color: #EA2361;
 }
 
-.submit-button{
+.submit-button {
   background-color: #D9455F;
-  padding:8px 16px;
-  margin-top:8px;
-  color:white;
+  padding: 8px 16px;
+  margin-top: 8px;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   border-radius: 4px;
-  width:100%;
+  width: 100%;
+} .submit-button:hover {
+  background-color: #EA2361;
 }
 
 // PLEASE DONT COMMENT THIS OUT!!!!!
