@@ -18,8 +18,10 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   border-radius: 5px;
-  line-height: 12px;
-  padding: 8px 10px;
+  line-height: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 10px;
   margin: 12px 0px;
   font-family: 'Montserrat', sans-serif;
   h6 {
@@ -90,11 +92,15 @@
   z-index: 2000;
 }
 
-#reminder-title{
-  width:160px;
+#status {
+  font-size: 12px;
 }
 
-#pretty-name{
+#reminder-title {
+  width: 160px;
+}
+
+#pretty-name {
   padding-right:100px;
   margin-left:0px!important;
 }
