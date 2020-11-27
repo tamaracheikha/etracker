@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #2AABB9;
-  height:52px;
+  height:60px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,4 +16,34 @@
   color: white;
   padding-right:16px;
 
+}
+
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: transparent;
+  .nav-link {
+  color: white !important;
+  }
+  width: 100%;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.navbar-white {
+  background-color: white !important;
+  .nav-link {
+    color: black !important;
+    opacity: 0.8;
+    font-weight:200;
+  }
+  .nav-link:hover{
+    opacity:1;
+  }
+}
+
+#name-etracker{
+  color:white;
+  text-decoration:none;
 }
