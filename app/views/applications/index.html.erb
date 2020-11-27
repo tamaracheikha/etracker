@@ -64,7 +64,9 @@
               <%= f.input :title %>
               <%= f.association :application, label_method: :pretty_name %>
               <p><%= f.input :scheduled_date %></p>
-              <%= f.button :submit, class:"btn btn-primary"%>
+              <div class="submit-button-container d-flex justify-content-around mb-4">
+                <%= f.button :submit, class:"button"%>
+              </div>
               <% end %>
             </div>
           </div>
