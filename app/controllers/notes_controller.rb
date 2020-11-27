@@ -5,7 +5,7 @@ class NotesController < ApplicationController
     @note.application = @application
     @note.date = Date.today
     if @note.save
-      redirect_to application_path(@application)
+      redirect_to application_path(@application, note: true)
     else
       render "applications/show"
     end
