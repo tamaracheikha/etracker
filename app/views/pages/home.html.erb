@@ -1,7 +1,17 @@
+<% provide(:nav_style, "transparent-nav") %>
 <div class="banner" id="home">
   <div class="d-flex home-page">
     <div class="video-container mb-0">
       <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home-video" %>
+    </div>
+    <div class="background-opacity">
+      <div class="banner-info">
+        <h1 id="banner-title">eTRACKER</h1>
+        <p id="banner-text">Stop worrying about organizing your job search and focus on your interviews!</p>
+        <div class="d-flex justify-content-around">
+          <%= link_to "Track your Applications", new_user_session_path, class:"button", id:"banner-button" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
