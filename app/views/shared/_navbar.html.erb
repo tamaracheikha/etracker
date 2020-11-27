@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to "eTRACKER", applications_path, id:"name-etracker" %>
 
@@ -23,29 +23,31 @@
     </ul>
   </div>
   </div>
-<% end %>
 
-<div class="modal fade bd-example-modal-lg create-application-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class=" container application-form">
-        <div class="d-flex justify-content-around pb-3">
-          <h2>Add an Application</h2>
-        </div>
-        <%= simple_form_for(@application) do |f| %>
-          <%= f.input :company_name, class: "form-control" %>
-          <%= f.input :company_link, class: "form-control" %>
-          <%= f.input :location, class: "form-control" %>
-          <%= f.input :job_title, class: "form-control" %>
-          <%= f.input :job_description, class: "form-control" %>
-          <%= f.input :cv, as: :file %>
-          <%= f.input :cover_letter, as: :file %>
-          <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
-          <div>
-            <%= f.button :submit, class:"submit-button" %>
+
+<% if user_signed_in? %>
+  <div class="modal fade bd-example-modal-lg create-application-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class=" container application-form">
+          <div class="d-flex justify-content-around pb-3">
+            <h2>Add an Application</h2>
           </div>
-        <% end %>
+          <%= simple_form_for(@application) do |f| %>
+            <%= f.input :company_name, class: "form-control" %>
+            <%= f.input :company_link, class: "form-control" %>
+            <%= f.input :location, class: "form-control" %>
+            <%= f.input :job_title, class: "form-control" %>
+            <%= f.input :job_description, class: "form-control" %>
+            <%= f.input :cv, as: :file %>
+            <%= f.input :cover_letter, as: :file %>
+            <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
+            <div>
+              <%= f.button :submit, class:"submit-button" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

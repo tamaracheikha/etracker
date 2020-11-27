@@ -9,6 +9,7 @@
   transition: background 0.3s ease;
   } .button:hover {
     background-color: #EA2361;
+    text-decoration:none;
   }
 
 #navbar-button{
@@ -84,6 +85,22 @@
   background-color: #EA2361;
   color: white;
 }
+
+#banner-button{background-color: #D9455F;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
+  border: none;
+  font-size:20px;
+  padding: 16px 24px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  transition: background 0.3s ease;
+  } #banner-button:hover {
+    background-color: #EA2361;
+    text-decoration:none;
+  }
+
+
 
 // PLEASE DONT COMMENT THIS OUT!!!!!
 
