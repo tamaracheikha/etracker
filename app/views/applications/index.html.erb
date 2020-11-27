@@ -49,7 +49,7 @@
         </div>
       </div>
     <div class="reminders-container">
-      <% @reminders.each do |reminder| %>
+      <% @reminders.order(scheduled_date: :desc).each do |reminder| %>
         <div class="row">
           <div class="reminders-card d-flex justify-content-between">
             <p id="reminder-title"><strong><%= reminder.title %></strong></p>
