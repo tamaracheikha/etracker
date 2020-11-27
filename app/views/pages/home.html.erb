@@ -3,33 +3,6 @@
     <div class="video-container mb-0">
       <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home-video" %>
     </div>
-    <div class="d-flex justify-content-around sign-up">
-      <div class="card sign-up">
-        <div class="d-flex justify-content-around">
-          <h2>Sign up</h2>
-        </div>
-        <%= simple_form_for(User.new, url: new_user_registration_path) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" },
-                    class:"form-control"%>
-            <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" },
-                    class:"form-control" %>
-            <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" },
-                    class:"form-control" %>
-          </div>
-          <%= f.button :submit, "Sign up", class:"submit-button" %>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
+

@@ -1,7 +1,11 @@
 .icon {
   color: #19CAC9;
+}
+
+.icon.add {
+  color: #19CAC9;
   transition: background 0.3s ease;
 }
-.icon:hover {
-  color: #29ABBA;
+.icon.add:hover {
+  color: #15A9BA;
 }

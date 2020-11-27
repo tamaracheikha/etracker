@@ -15,9 +15,9 @@
             <div class= "d-flex justify-content-start align-items-center symbols">
               <h1><%= @application.company_name %></h1>
               <h4><%= link_to edit_application_path(@application) do %></h4>
-              <h4><%= fa_icon "edit" %></h4>
+              <h4 class="icon add"><%= fa_icon "edit" %></h4>
               <% end %>
-              <h4><%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }%></h4>
+              <h4><%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }, class: "icon add" %></h4>
             </div>
             <div class="d-flex">
               <div class= "d-flex justify-content-start mr-4">

@@ -12,7 +12,7 @@
       <%= f.input :job_description, class: "form-control" %>
       <%= f.input :cv, as: :file %>
       <%= f.input :cover_letter, as: :file %>
-      <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
+      <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'], selected: params[:status] %>
       <div>
         <%= f.button :submit, class:"submit-button" %>
       </div>
