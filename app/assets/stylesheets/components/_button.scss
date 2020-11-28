@@ -7,6 +7,7 @@
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   transition: background 0.3s ease;
+  outline: none;
   } .button:hover {
     background-color: #EA2361;
     text-decoration:none;
@@ -17,7 +18,8 @@
   background-color: transparent;
   color: white;
   text-decoration: none;
-  border:none;
+  border: none;
+  outline: none;
 } #navbar-button:hover{
     border: none;
 }
@@ -27,6 +29,7 @@
   font-family: 'Montserrat', sans-serif;
   border-radius: 4px;
   border: none;
+  outline: none;
   padding: 8px 16px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
@@ -42,6 +45,7 @@
   font-family: 'Montserrat', sans-serif;
   border-radius:4px;
   border: none;
+  outline: none;
   padding:8px 16px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
@@ -65,6 +69,7 @@
   font-family: 'Montserrat', sans-serif;
   border-radius:4px;
   border: none;
+  outline: none;
   padding:8px 16px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
@@ -79,6 +84,7 @@
   padding: 8px 16px;
   margin-top: 8px;
   color: white;
+  outline: none;
   font-family: 'Montserrat', sans-serif;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   border-radius: 4px;
@@ -92,6 +98,7 @@
   font-family: 'Montserrat', sans-serif;
   border-radius: 8px;
   border: none;
+  outline: none;
   font-size:20px;
   padding: 16px 24px;
   color: white;
