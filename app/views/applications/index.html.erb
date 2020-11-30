@@ -52,10 +52,17 @@
       <% @reminders.order(scheduled_date: :desc).each do |reminder| %>
         <div class="row">
           <div class="reminders-card d-flex justify-content-between">
+            <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
+               <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+              <%= f.check_box :completed, input_html: { value: "completed" }, class: "reminder-checkbox" %>
+            <% end %>
             <p id="reminder-title"><strong><%= reminder.title %></strong></p>
             <p><%= reminder.description %></p>
             <p id="pretty-name"><%= reminder.application.pretty_name%></p>
-            <p><%= reminder.scheduled_date%></p>
+            <p><%= reminder.scheduled_date %></p>
+            <%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" } do %>
+              <i class="fa fa-trash icon add" aria-hidden="true"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -69,6 +76,7 @@
               <%= f.input :title %>
               <%= f.association :application, label_method: :pretty_name %>
               <p><%= f.input :scheduled_date %></p>
+              <p><%= f.input :completed, as: :boolean %></p>
               <div class="submit-button-container d-flex justify-content-around mb-4">
                 <%= f.button :submit, class:"button"%>
               </div>
