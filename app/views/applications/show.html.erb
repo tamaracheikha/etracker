@@ -18,24 +18,30 @@
               <h4 class="icon add"><%= fa_icon "edit" %></h4>
               <% end %>
               <h4><%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }, class: "icon add" %></h4>
-            </div>
-            <div class="d-flex">
-              <div class= "d-flex justify-content-start mr-4">
-                <i class="fas fa-user symbol"></i><p class="ml-1"><%= @application.job_title %></p>
               </div>
-              <div class= "d-flex justify-content-start">
-                <i class="fas fa-link symbol"></i><%= link_to @application.company_link, @application.company_link, class:"ml-1", target:"blank" %>
+              <div class="d-flex">
+                <div class= "d-flex justify-content-start mr-4">
+                  <i class="fas fa-user symbol"></i><p class="ml-1"><%= @application.job_title %></p>
+                </div>
+                <div class= "d-flex justify-content-start">
+                  <i class="fas fa-link symbol"></i><%= link_to @application.company_link, @application.company_link, class:"ml-1", target:"blank" %>
+                </div>
+              </div>
+              <div class= "d-flex">
+                <div class= "d-flex justify-content-start mr-4">
+                  <i class="fas fa-map-marker-alt symbol"></i><p class="ml-1"><em><%= @application.location %></em></p>
+                </div>
+                <div class= "d-flex justify-content-start">
+                  <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.application_status %></p>
+                </div>
+                <div class= "d-flex justify-content-start">
+                  <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.cover_letter %></p>
+                </div>
               </div>
             </div>
-            <div class= "d-flex">
-              <div class= "d-flex justify-content-start mr-4">
-                <i class="fas fa-map-marker-alt symbol"></i><p class="ml-1"><em><%= @application.location %></em></p>
-              </div>
-              <div class= "d-flex justify-content-start">
-              <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.application_status %></p>
-            </div>
-          </div>
             <p style="white-space: pre-line;"><%= @application.job_description %></p>
+            <%= cl_image_tag @application.cover_letter.key, format: :png, width: 300, height: 500 %>
+            <%= cl_image_tag @application.cv.key, format: :png, width: 300, height: 500 %>
           </div>
         </div>
         <div class="tab-pane fade <%= "active show" if params[:note] %>" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
@@ -60,30 +66,32 @@
       </div>
     </div>
     <div class="col-12 col-md-5">
-      <div class="p-5">
-        <div class="d-flex justify-content-center">
-          <button type="button" class="text-underline reminder-button btn-block mb-4 w-50" data-toggle="modal" data-target=".create-reminder-modal">+ Add Reminder</button>
-        </div>
-        <div class="timeline">
-          <% @application.reminders.order(scheduled_date: :desc).each do |reminder| %>
-            <div class="d-flex align-items-start note-wrapper">
-              <div class= "timeline-note" type="button" data-toggle="modal" data-target="#edit_<%= dom_id(reminder) %>"></div>
-              <div class="border px-2 py-1 rounded bg-white mt-n2"><%= reminder.title %> <small class="text-muted"><em><%= reminder.scheduled_date %></em></small></div>
-            </div>
-            <div class="modal fade bd-example-modal-lg" id="edit_<%= dom_id(reminder) %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <%= simple_form_for reminder do |f| %>
-                    <%= f.input :title %>
-                    <%= f.input :description %>
-                    <%= f.input :scheduled_date %>
-                    <%= f.submit class: 'btn btn-primary' %>
-                  <% end %>
-                  <%= reminder.scheduled_date %>
+      <div class="p-5 mt-4">
+        <div class="timeline-box" >
+          <div class="d-flex justify-content-center">
+            <button type="button" class="text-underline reminder-button btn-block mb-4 w-50" data-toggle="modal" data-target=".create-reminder-modal">+ Add Reminder</button>
+          </div>
+          <div class="timeline">
+            <% @application.reminders.order(scheduled_date: :desc).each do |reminder| %>
+              <div class="d-flex align-items-start note-wrapper">
+                <div class= "timeline-note" type="button" data-toggle="modal" data-target="#edit_<%= dom_id(reminder) %>"></div>
+                <div class="border"><%= reminder.title %> <small class="text-muted"><em><%= reminder.scheduled_date %></em></small></div>
+              </div>
+              <div class="modal fade bd-example-modal-lg" id="edit_<%= dom_id(reminder) %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <%= simple_form_for reminder do |f| %>
+                      <%= f.input :title %>
+                      <%= f.input :description %>
+                      <%= f.input :scheduled_date %>
+                      <%= f.submit class: 'btn btn-primary' %>
+                    <% end %>
+                    <%= reminder.scheduled_date %>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
