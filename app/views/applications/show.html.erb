@@ -11,7 +11,7 @@
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show <%= "active show" unless params[:note] %>" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
-          <div class="overview  card">
+          <div class="overview">
             <div class="info-bottom-border">
               <div class= "d-flex justify-content-start align-items-center symbols">
                 <h1><%= @application.company_name %></h1>
@@ -33,12 +33,7 @@
                   <i class="fas fa-map-marker-alt symbol"></i><p class="ml-1"><em><%= @application.location %></em></p>
                 </div>
                 <div class= "d-flex justify-content-start">
-                <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.application_status %></p>
-                </div>
-                <div class= "d-flex justify-content-start">
-                  <% if @application.cv.attached?  %>
-                    <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.cv.key %></p>
-                    <% end %>
+                  <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.application_status %></p>
                 </div>
                 <div class= "d-flex justify-content-start">
                   <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.cover_letter %></p>
@@ -71,7 +66,7 @@
     </div>
     <div class="col-12 col-md-5">
       <div class="p-5 mt-4">
-        <div class="timeline-box card" >
+        <div class="timeline-box" >
           <div class="d-flex justify-content-center">
             <button type="button" class="text-underline reminder-button btn-block mb-4 w-50" data-toggle="modal" data-target=".create-reminder-modal">+ Add Reminder</button>
           </div>

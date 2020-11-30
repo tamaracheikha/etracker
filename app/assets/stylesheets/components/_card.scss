@@ -1,7 +1,7 @@
 .status-card {
   height: 100%;
-  background-color: white;
-  padding: 5px 8px;
+  background-color: transparent;
+  // padding: 5px 8px;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
@@ -103,5 +103,15 @@
 #pretty-name {
   padding-right:100px;
   margin-left:0px!important;
+}
+
+.col{
+   margin-top:16px;
+   margin-bottom:16px;
+   border-left: 1px solid rgba(70,70,70,0.08);
+}
+
+#notes-content{
+  border:none!important;
 }
 
