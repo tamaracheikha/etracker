@@ -25,14 +25,19 @@
               <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
                 <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
-                        <h6><%= application.company_name %></h6>
-                        <p><%= application.job_title %></p>
+                      <div class="application-grid">
+                        <%= image_tag "https://cdn.worldvectorlogo.com/logos/google-icon.svg", class: "avatar dropdown-toggle", id: "company-logo", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <div class="application-title">
+                          <h6><%= application.company_name %></h6>
+                          <p><%= application.job_title %></p>
                         <div class="date-icon">
                           <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
                           <%= link_to application_path(application), class: "z-index" do %>
                             <%= fa_icon "arrow-circle-right", class: "icon arrow" %>
                           <% end %>
                         </div>
+                        </div>
+                       </div>
                       </li>
                   <% end %>
                 </ul>

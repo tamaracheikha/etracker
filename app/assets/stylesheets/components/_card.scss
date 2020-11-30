@@ -23,7 +23,7 @@
   line-height: 14px;
   padding-left: 18px;
   padding-right: 18px;
-  padding-top: 10px;
+  // padding-top: 10px;
   margin: 12px 0px;
   outline: none !important;
   font-family: 'Montserrat', sans-serif;
@@ -35,6 +35,20 @@
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
   }
+}
+
+.application-title{
+  padding-top:10px;
+}
+
+.application-grid{
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+
+}
+
+#company-logo{
+  margin-top:24px;
 }
 
 .dropzone {
@@ -120,6 +134,7 @@
 
 #status {
   font-size: 12px;
+  opacity: 0.6;
 }
 
 // #reminder-title {
@@ -159,4 +174,9 @@
 .title-card {
   font-size: 19px;
   margin-top: 5px;
+}
+
+.application-info{
+  border-bottom:1px solid rgb(230,230,230);
+  margin-bottom:24px;
 }
