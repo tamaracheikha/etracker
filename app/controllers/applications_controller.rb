@@ -1,4 +1,6 @@
 class ApplicationsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :extension
+
   def show
     @user = current_user
     @application = Application.find(params[:id])
@@ -59,6 +61,10 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.destroy
     redirect_to applications_path
+  end
+
+  def extension
+    byebug
   end
 
   private
