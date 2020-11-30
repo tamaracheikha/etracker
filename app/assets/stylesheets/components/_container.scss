@@ -19,3 +19,14 @@
 .new-form-container {
   margin-top: 16px;
 }
+
+.dashboard{
+  border: none;
+  border-radius: 8px;
+  background-color: #FAFAFB;
+  box-shadow:
+  inset -10px -10px 15px rgba(255,255,255,0.8),
+  inset 10px 10px 15px rgba(70,70,70,0.05);
+  outline: none;
+}
+
