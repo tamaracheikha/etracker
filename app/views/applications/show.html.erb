@@ -36,8 +36,12 @@
               </div>
             </div>
             <p style="white-space: pre-line;"><%= @application.job_description %></p>
-            <%= cl_image_tag @application.cover_letter.key, format: :png, width: 350, height: 450 %>
-            <%= cl_image_tag @application.cv.key, format: :png, width: 350, height: 450 %>
+            <% if @application.cover_letter.attached?  %>
+               <%= cl_image_tag @application.cover_letter.key, format: :png, width: 350, height: 450 %>
+             <% end %>
+            <% if @application.cv.attached?  %>
+             <%= cl_image_tag @application.cv.key, format: :png, width: 350, height: 450 %>
+            <% end %>
           </div>
         </div>
         <div class="tab-pane fade <%= "active show" if params[:note] %>" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
