@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_164100) do
+ActiveRecord::Schema.define(version: 2020_11_30_110337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164100) do
     t.bigint "application_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "completed"
+    t.string "status"
     t.index ["application_id"], name: "index_notes_on_application_id"
   end
 
@@ -77,6 +79,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164100) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.bigint "application_id"
+    t.string "status"
+    t.boolean "completed"
     t.index ["application_id"], name: "index_reminders_on_application_id"
     t.index ["user_id"], name: "index_reminders_on_user_id"
   end
