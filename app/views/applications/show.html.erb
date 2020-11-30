@@ -11,7 +11,7 @@
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show <%= "active show" unless params[:note] %>" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
-          <div class="overview pl-2">
+          <div class="card overview pl-2">
             <div class= "d-flex justify-content-start align-items-center symbols">
               <h1><%= @application.company_name %></h1>
               <h4><%= link_to edit_application_path(@application) do %></h4>
@@ -29,6 +29,18 @@
               <div class= "d-flex justify-content-start">
                 <i class="fas fa-link symbol"></i><%= link_to @application.company_link, @application.company_link, class:"ml-1", target:"blank" %>
               </div>
+              <div type="button" class="button-showpage ml-5" data-toggle="modal" data-target=".cv-modal">
+                <i class="far fa-file-pdf mr-2"></i>CV
+              </div>
+              <div class="modal fade cv-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xlg">
+                  <div class="modal-content">
+                    <% if @application.cv.attached? %>
+                     <%= cl_image_tag @application.cv.key, format: :png, class: 'modal-img' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class= "d-flex">
               <div class= "d-flex justify-content-start mr-4">
@@ -37,14 +49,20 @@
               <div class= "d-flex justify-content-start">
                 <i class="fas fa-clock symbol"></i><p class="ml-1"><%= @application.application_status %></p>
               </div>
+              <div class="button-showpage ml-5" data-toggle="modal" data-target=".coverletter-modal">
+                <i class="far fa-file-alt mr-2"></i>Cover Letter
+              </div>
+              <div class="modal fade coverletter-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xlg">
+                  <div class="modal-content">
+                    <% if @application.cover_letter.attached?  %>
+                      <%= cl_image_tag @application.cover_letter.key, format: :png, class: 'modal-img' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
             <p style="white-space: pre-line;"><%= @application.job_description %></p>
-            <% if @application.cover_letter.attached?  %>
-               <%= cl_image_tag @application.cover_letter.key, format: :png, width: 350, height: 450 %>
-             <% end %>
-            <% if @application.cv.attached?  %>
-             <%= cl_image_tag @application.cv.key, format: :png, width: 350, height: 450 %>
-            <% end %>
           </div>
         </div>
         <div class="tab-pane fade <%= "active show" if params[:note] %>" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
