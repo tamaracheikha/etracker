@@ -28,14 +28,17 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
+    if params[:reminder][:completed]
+      @reminder.completed = !@reminder.completed
+    end
     @application = @reminder.application
     @reminder.update(reminder_params)
-    redirect_to application_path(@application)
+    redirect_to applications_path
   end
 
   private
 
   def reminder_params
-    params.require(:reminder).permit(:title, :description, :scheduled_date, :application_id)
+    params.require(:reminder).permit(:title, :description, :scheduled_date, :application_id, :completed, :status)
   end
 end

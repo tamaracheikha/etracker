@@ -15,9 +15,12 @@
             <div class= "d-flex justify-content-start align-items-center symbols">
               <h1><%= @application.company_name %></h1>
               <h4><%= link_to edit_application_path(@application) do %></h4>
-              <h4 class="icon add"><%= fa_icon "edit" %></h4>
+                <h4 class="icon add"><%= fa_icon "edit" %></h4>
               <% end %>
-              <h4><%= link_to "X", application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" }, class: "icon add" %></h4>
+              <h4><%= link_to application_path(@application), method: :delete, data: { confirm: "Are you sure you want to delete this application?" } do %></h4>
+                <h4><i class="fa fa-trash icon add" aria-hidden="true"></i></h4>
+              <% end %>
+
             </div>
             <div class="d-flex">
               <div class= "d-flex justify-content-start mr-4">
@@ -51,9 +54,11 @@
                 <div class="d-flex justify-content-start align-items-center symbols mb-3">
                   <h5 class="mr-2 mb-0"><%= note.title %></h5><p class="mb-0"><em><%= note.date.strftime("%B %e, %Y") %></em></p>
                   <p class="mb-0"><%= link_to edit_note_path(note) do %></p>
-                  <p class="mb-0 icon add"><%= fa_icon "edit" %></p>
+                    <p class="mb-0 icon add"><%= fa_icon "edit" %></p>
                   <% end %>
-                  <p class="mb-0"><%= link_to "X", note_path(note), method: :delete, data: { confirm: "Are you sure you want to delete this note?" }, class: "icon add"%></p>
+                  <p class="mb-0"><%= link_to note_path(note), method: :delete, data: { confirm: "Are you sure you want to delete this note?" } do %></p>
+                    <i class="fa fa-trash icon add" aria-hidden="true"></i>
+                  <% end %>
                  </div>
                 <p><%= note.rich_content %></p>
               </div>
@@ -117,9 +122,10 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class=" container reminder-form">
-        <%= simple_form_for [@application, @reminder] do |f| %>
+        <%= simple_form_for @reminder do |f| %>
         <%= f.input :title %>
         <p><%= f.input :scheduled_date %></p>
+        <%= f.input :application_id, as: :hidden, input_html: { value: @application.id } %>
         <div class="submit-button-container d-flex justify-content-around mb-4">
           <%= f.button :submit, class:"button"%>
         </div>
