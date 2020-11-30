@@ -12,5 +12,4 @@ class Application < ApplicationRecord
   def pretty_name
     "#{company_name} - #{job_title} - #{application_status}"
   end
-
 end
