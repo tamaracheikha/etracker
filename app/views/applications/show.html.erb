@@ -37,10 +37,10 @@
             </div>
             <p style="white-space: pre-line;"><%= @application.job_description %></p>
             <% if @application.cover_letter.attached?  %>
-              <%= cl_image_tag @application.cover_letter.key, format: :png, width: 300, height: 500 %>
+               <%= cl_image_tag @application.cover_letter.key, format: :png, width: 350, height: 450 %>
              <% end %>
             <% if @application.cv.attached?  %>
-              <%= cl_image_tag @application.cv.key, format: :png, width: 300, height: 500 %>
+             <%= cl_image_tag @application.cv.key, format: :png, width: 350, height: 450 %>
             <% end %>
           </div>
         </div>
