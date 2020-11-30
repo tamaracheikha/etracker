@@ -4,13 +4,17 @@
   "description": "Build an Extension!",
   "manifest_version": 2,
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js","popup.js"]
   },
   "permissions": [
     "activeTab",
+    "contextMenus",
+    "webNavigation",
+    "<all_urls>",
     "http://*/*",
-    "https://*/*"
-  ],
+    "https://*/*",
+    "storage",
+    "identity"  ],
   "browser_action": {
     "default_popup": "popup.html"
   }
