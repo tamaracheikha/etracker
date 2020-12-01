@@ -85,7 +85,7 @@
                   <div class="container modal-content">
                     <%= simple_form_for note do |f| %>
                       <%= f.input :title %>
-                      <p><%= f.rich_text_area :rich_content %></p>
+                      <p><%= f.rich_text_area :rich_content, class: 'notes-modal-content' %></p>
                       <div class="d-flex justify-content-around pb-3">
                         <%= f.button :submit, class:"button", value:"Save"%>
                       </div>
