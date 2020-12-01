@@ -10,7 +10,7 @@ class RemindersController < ApplicationController
       @reminder.application = @application
       @reminder.user = current_user
       if @reminder.save
-        redirect_to applications_path(reminder: true)
+        redirect_to application_path(@application)
       else
         render "applications/show"
       end
@@ -19,7 +19,7 @@ class RemindersController < ApplicationController
       @reminder.application = @application
       @reminder.user = current_user
       if @reminder.save
-        redirect_to application_path(@application)
+        redirect_to applications_path(reminder: true)
       else
         render "applications/show"
       end
@@ -33,13 +33,13 @@ class RemindersController < ApplicationController
     end
     @application = @reminder.application
     @reminder.update(reminder_params)
-    redirect_to applications_path
+    redirect_to applications_path(reminder: true)
   end
 
   def destroy
     @reminder = Reminder.find(params[:id])
     @reminder.destroy
-    redirect_to applications_path
+    redirect_to applications_path(reminder: true)
   end
 
   private

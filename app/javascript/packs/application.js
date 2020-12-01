@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener("click", e => {
       e.preventDefault();
-        e.currentTarget.parentElement.submit();
+        e.currentTarget.parentElement.parentElement.submit();
     })
   })
 });

@@ -47,47 +47,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.reminders-card {
-  background-color: white;
-  border-radius: 8px;
-  height: 100%;
-  width: 450px;
-  padding: 10px 20px;
-  margin: 8px;
-  padding-top: 20px;
-  line-height: 1.0;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  font-family: 'Montserrat', sans-serif;
-  h4 {
-    font-weight: bolder;
-  }
-  p {
-    font-size: 14px;
-  }
-}
-
-.reminder-card-top {
-  display: flex;
-  align-items: center;
-  padding: 0px 5px;
-}
-
-.reminder-content {
-  flex-grow: 1;
-  padding: 0 24px;
-}
-
-.reminder-card-info {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 5px;
-}
-
-.reminder-date {
-  padding-left: 38px;
-  padding-top: 0px;
-}
-
 .card.sign-up {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 8px;
