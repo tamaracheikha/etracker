@@ -99,7 +99,7 @@
           </div>
           <div class="timeline">
             <% @application.reminders.order(scheduled_date: :desc).each do |reminder| %>
-              <div class="d-flex align-items-start note-wrapper">
+              <div class="d-flex align-items-start note-wrapper pb-3">
                 <div class= "timeline-note" type="button" data-toggle="modal" data-target="#edit_<%= dom_id(reminder) %>"></div>
                 <div class="border timeline-reminder"><%= reminder.title %> <small class="text-muted"><em><%= reminder.scheduled_date %></em></small></div>
               </div>
