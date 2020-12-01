@@ -24,13 +24,11 @@
 // sendData(fetchData());
 
 function fetchData() {
-  // const jobDetails = document.querySelector('.a11y-text').innerText;
-  // const jobTitle = document.querySelector('.jobs-details-top-card__job-title').innerText;
-  // console.log(jobTitle);
-  // const jobDescription = document.querySelector('#job-details').innerText;
-  // console.log(jobDescription);
+  const jobDetails = document.querySelector('.a11y-text').innerText;
   const jobTitle = document.querySelector('.jobs-details-top-card__job-title').innerText;
   console.log(jobTitle);
+  const jobDescription = document.querySelector('#job-details').innerText;
+  console.log(jobDescription);
   const url = window.location.href;
   console.log(url);
   return {
