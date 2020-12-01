@@ -11,7 +11,7 @@
   border-radius: 8px;
   margin-left: 24px;
   width: 18rem;
-  background-color: #fff8cd;
+  background-color: rgba(255, 248, 205, 0.7);
   position: relative;
 }
 
@@ -28,6 +28,7 @@
   overflow-y: auto;
   font-size: 15px;
   font-weight: lighter;
+  padding: 2px;
   div {
     overflow: scroll;
     max-height: 100px;

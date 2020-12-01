@@ -16,3 +16,13 @@ a:hover {
   color: #19CAC9;
 }
 
+.delete-symbol {
+  color: gray !important;
+  position: relative;
+  z-index: 1000;
+}
+
+.fa.fa-trash.icon.add {
+position: relative;
+left: 97%;
+}
