@@ -64,7 +64,11 @@ class ApplicationsController < ApplicationController
   end
 
   def extension
-    byebug
+    @application = Application.new(application_params)
+    if @application.save
+      StatusUpdate.create(application: @application, date: Date.today, content: @application.application_status)
+      redirect_to application_path(@application)
+    end
   end
 
   private

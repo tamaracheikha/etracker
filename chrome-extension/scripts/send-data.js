@@ -24,27 +24,31 @@
 // sendData(fetchData());
 
 function fetchData() {
-  const jobDetails = document.querySelector('.a11y-text').innerText;
+  // const jobDetails = document.querySelector('.a11y-text').innerText;
+  // const jobTitle = document.querySelector('.jobs-details-top-card__job-title').innerText;
+  // console.log(jobTitle);
+  // const jobDescription = document.querySelector('#job-details').innerText;
+  // console.log(jobDescription);
   const jobTitle = document.querySelector('.jobs-details-top-card__job-title').innerText;
   console.log(jobTitle);
-  const jobDescription = document.querySelector('#job-details').innerText;
-  console.log(jobDescription);
   const url = window.location.href;
   console.log(url);
   return {
-    title: title,
+    jobTitle: jobTitle,
+    jobDescription: jobDescription,
     url: url
   }
 }
 
 function sendData(data) {
-  const url = 'https://wagon-chat.herokuapp.com/engineering/messages';
+  const url = 'http://localhost:3000/extension';
   fetch(url, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      "author": "Le Wagon chrome extension",
-      "content": `I've found something cool: ${data.title} on ${data.url}`
+      "job_title": `${data.jobTitle}`,
+      "job_description": `${data.jobDescription}`,
+      "company_link": `${data.url}`
     })
   })
 }

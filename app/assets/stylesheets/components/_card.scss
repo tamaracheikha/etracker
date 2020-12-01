@@ -180,3 +180,12 @@
   border-bottom:1px solid rgb(230,230,230);
   margin-bottom:24px;
 }
+
+.trix-content {
+  min-height: 100px;
+  max-height: 100px;
+  overflow-y: scroll;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
