@@ -1,4 +1,6 @@
 class ApplicationsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :extension
+
   def show
     @user = current_user
     @application = Application.find(params[:id])
@@ -59,6 +61,14 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.destroy
     redirect_to applications_path
+  end
+
+  def extension
+    @application = Application.new(application_params)
+    if @application.save
+      StatusUpdate.create(application: @application, date: Date.today, content: @application.application_status)
+      redirect_to application_path(@application)
+    end
   end
 
   private
