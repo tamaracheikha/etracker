@@ -18,3 +18,12 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
 }
+
+.trix-content {
+  min-height: 100px;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
