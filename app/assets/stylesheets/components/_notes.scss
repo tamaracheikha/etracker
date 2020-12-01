@@ -11,10 +11,44 @@
   border-radius: 8px;
   margin-left: 24px;
   width: 18rem;
+  background-color: #fff8cd;
+  position: relative;
 }
+
 
 .notes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
 }
+
+.trix-content {
+  min-height: 100px;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 15px;
+  font-weight: lighter;
+  div {
+    overflow: scroll;
+    max-height: 100px;
+  }
+  z-index: 100;
+}
+
+.no-link-deck {
+  color: black;
+}
+.no-link-deck:hover {
+  color: black;
+}
+
+.rel-link {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
