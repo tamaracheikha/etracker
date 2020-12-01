@@ -3,7 +3,9 @@
   <%= simple_form_for @note do |f| %>
     <%= f.input :title %>
     <p><%= f.rich_text_area :rich_content %></p>
-    <%= f.button :submit, class:"btn btn-primary"%>
+    <div class="d-flex justify-content-around pb-3">
+      <%= f.button :submit, class:"button", value:"Save"%>
+    </div>
   <% end %>
   </div>
 </div>

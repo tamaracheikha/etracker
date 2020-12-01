@@ -5,7 +5,8 @@
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
-  outline: none;
+  outline: none !important;
+  border: none;
   a {
     text-decoration: none;
     color: black;
@@ -22,9 +23,9 @@
   line-height: 14px;
   padding-left: 18px;
   padding-right: 18px;
-  padding-top: 10px;
+  // padding-top: 10px;
   margin: 12px 0px;
-  outline: none;
+  outline: none !important;
   font-family: 'Montserrat', sans-serif;
   h6 {
     font-weight: bold;
@@ -36,23 +37,39 @@
   }
 }
 
+.application-title{
+  padding-top:10px;
+}
+
+.application-grid{
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+
+}
+
+#company-logo{
+  margin-top:24px;
+}
+
 .dropzone {
   min-height: 500px;
+  outline: none;
 }
 
 .card-title {
-  margin-top: 18px;
+  margin-top: 30px;
   font-family: 'Montserrat', sans-serif;
 }
-
 
 .reminders-card {
   background-color: white;
   border-radius: 8px;
-  width: 100%;
-  height: 56px;
-  padding: 8px 10px;
-  margin: 8px 16px;
+  height: 100%;
+  width: 450px;
+  padding: 10px 20px;
+  margin: 8px;
+  padding-top: 20px;
+  line-height: 1.0;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   font-family: 'Montserrat', sans-serif;
   h4 {
@@ -60,8 +77,29 @@
   }
   p {
     font-size: 14px;
-    margin: auto!important;
   }
+}
+
+.reminder-card-top {
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.reminder-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.reminder-card-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+.reminder-date {
+  padding-left: 38px;
+  padding-top: 0px;
 }
 
 .card.sign-up {
@@ -76,7 +114,7 @@
     }
 }
 
-.add-job{
+.add-job {
   width: 500px;
 }
 .row.card-title {
@@ -96,18 +134,18 @@
 
 #status {
   font-size: 12px;
+  opacity: 0.6;
 }
 
-#reminder-title {
-  width: 160px;
-}
+// #reminder-title {
+//   width: 160px;
+// }
 
 #pretty-name {
-  padding-right: 100px;
   margin-left: 0px !important;
 }
 
-#notes-content{
+#notes-content {
   border:none!important;
 }
 
@@ -137,3 +175,17 @@
   font-size: 19px;
   margin-top: 5px;
 }
+
+.application-info{
+  border-bottom:1px solid rgb(230,230,230);
+  margin-bottom:24px;
+}
+
+.trix-content {
+  min-height: 100px;
+  max-height: 100px;
+  overflow-y: scroll;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
