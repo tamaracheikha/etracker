@@ -3,9 +3,10 @@
   // height: 400px;
   // border: 2px solid #BFBFBF;
   background-color: #BFBFBF;
-  margin-left: 160px;
+  // margin-left: 160px;
   margin-top: 16px;
-  margin-bottom:24px;
+  // margin-bottom:24px;
+  height:80%;
 }
 
 .border{
@@ -15,11 +16,18 @@
   white-space: normal !important;
 }
 
+.reminder-label{
+  border: none!important;
+  background-color: white!important;
+  padding:8px 16px;
+  max-width: 320px;
+}
+
 .timeline-box{
-  border-radius: 8px;
-  // margin-left:60px;
-  padding-right:16px;
-  padding-bottom:16px;
+  // border-radius: 8px;
+  margin-left:60px;
+  // padding-right:16px;
+  // padding-bottom:16px;
   position: fixed;
 }
 
