@@ -20,3 +20,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.icon.delete {
+  color: gray;
+  transition: background 0.3s ease;
+} .icon.delete:hover {
+  color: #EA2361;
+}

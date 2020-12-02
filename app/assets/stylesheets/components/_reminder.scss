@@ -1,3 +1,38 @@
+.reminders-container {
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 0px 6px 0px;
+  // grid-template-columns: 1fr 2fr;
+}
+
+.all-reminders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.today-reminders-header {
+  margin-bottom: 9px;
+  text-align: left;
+  padding-right: 609px;
+}
+
+// .reminder-checkbox + label {
+//   cursor: pointer;
+//   height: 10px;
+//   width: 10px;
+//   border: 2px solid #19CAC9;
+// }
+
+// .reminder-checkbox:checked + label {
+//   height: 10px;
+//   width: 10px;
+//   border: 2px solid red;
+//   background-color: #19CAC9;
+//   }
+
 .reminder-card {
   background-color: white;
   border-radius: 4px;
@@ -11,79 +46,13 @@
   font-family: 'Montserrat', sans-serif;
   flex: 1 1 0%;
   flex-wrap: wrap;
-  border-left: solid 4px #2FAD3A;
+  border-left: solid 5px #19ADA0;
   h6 {
     font-weight: bolder;
   }
   p {
     font-size: 12px;
   }
-}
-
-.header-row {
-  width: 61%;
-  padding: 10px 0px 0px;
-  font-family: 'Montserrat Light', sans-serif;
-  font-weight: lighter;
-}
-
-.application-name {
-  padding: 0px 15px 12px;
-  border-bottom: 1px solid #e1e3e5;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.job-reminder-form {
-  padding: 0px 0px 12px 0px;
-}
-
-.application-reminder-card {
-  background-color: white;
-  border-radius: 4px;
-  height: 135px !important;
-  width: 500px;
-  margin: 8px;
-  padding-top: 13px;
-  box-sizing: border-box;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  font-family: 'Montserrat', sans-serif;
-  flex: 1 1 0%;
-  flex-wrap: wrap;
-  align-items: center;
-  p {
-    font-size: 12px;
-  }
-}
-
-.job-reminder-delete {
-  padding: 0px 25px 0px;
-}
-
-.job-reminder-card {
-  margin-bottom: 0;
-  padding: 15px 24px 0px;
-  display: flex;
-  align-items: center;
-  border-left: solid 4px #2FAD3A;
-}
-
-.job-reminder-card-incomplete {
-  margin-bottom: 0;
-  padding: 15px 24px 0px;
-  display: flex;
-  align-items: center;
-  border-left: solid 4px #F44343;
-}
-
-.job-reminder-card-top {
-  // align-items: center;
-  // justify-content: space-between;
-  padding: 0 20px 0px;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .reminder-card-incomplete {
@@ -98,7 +67,7 @@
   // box-shadow: 0 6px 12px -5px #E0F2F4;
   font-family: 'Montserrat', sans-serif;
   flex: 1 1 0%;
-  border-left: solid 4px #F44343;
+  border-left: solid 5px #EA2361;
   flex-wrap: wrap;
   h6 {
     font-weight: bolder;
@@ -107,6 +76,91 @@
     font-size: 12px;
   }
 }
+
+.reminder-button-container {
+  padding-left: 237px;
+}
+
+.application-reminder-grid {
+  display: grid;
+  grid-gap: 0px 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+// .header-row {
+//   width: 61%;
+//   padding: 10px 0px 0px;
+//   font-family: 'Montserrat Light', sans-serif;
+//   font-weight: lighter;
+// }
+
+.application-name {
+  padding: 13px 15px 12px;
+  border-bottom: 1px solid #e1e3e5;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.job-reminder-form {
+  padding: 0px 0px 12px 0px;
+}
+
+.application-reminder-card {
+  background-color: white;
+  border-radius: 4px;
+  // height: 135px !important;
+  width: 370px;
+  margin: 8px;
+  // padding-top: 13px;
+  box-sizing: border-box;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-family: 'Montserrat', sans-serif;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  align-items: center;
+  line-height: auto;
+  p {
+    font-size: 12px;
+  }
+}
+
+.job-reminder-delete {
+  padding: 0px 25px 0px;
+}
+
+.job-reminder-card {
+  margin-bottom: 0;
+  padding: 15px 24px 0px;
+  display: flex;
+  align-items: center;
+  border-left: solid 5px #19ADA0
+}
+
+.job-reminder-card-incomplete {
+  margin-bottom: 0;
+  padding: 15px 24px 0px;
+  display: flex;
+  align-items: center;
+  border-left: solid 5px #EA2361;
+}
+
+.job-reminder-card-top {
+  // align-items: center;
+  // justify-content: space-between;
+  padding: 0 20px 0px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.job-reminder-delete {
+  position: absolute;
+  left: 134px;
+  bottom: 8px;
+}
+
 
 .reminder-card-top {
   display: flex;
@@ -133,18 +187,24 @@
   font-size: smaller;
 }
 
-.all-reminders {
-  flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-}
-
-.today-reminders {
+.all-reminders-container {
   flex-direction: column;
   display: flex;
+  border-radius: 4px;
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  background: #F6F6F6;
+  padding: 18px;
+}
+
+.today-reminders-container {
+  flex-direction: column;
+  display: flex;
+  border-radius: 4px;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  background: #F6F6F6;
+  padding: 18px;
 }
