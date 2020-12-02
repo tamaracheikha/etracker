@@ -29,8 +29,9 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
+    @application = @note.application
     @note.destroy
-    redirect_to application_path(@note.application)
+    redirect_to application_path(@application, note: true)
   end
 
   private
