@@ -9,7 +9,7 @@ export default class extends Controller {
       this.itemTargets.forEach(item => {
         item.setAttribute('style', 'z-index: 1000;')
       })
-      console.log(this.columnTargets)
+      // console.log(this.columnTargets)
       const sortable = new Sortable(this.columnTargets, {
         draggable: 'li'
         })

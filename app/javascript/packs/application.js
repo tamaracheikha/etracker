@@ -42,7 +42,18 @@ document.addEventListener('turbolinks:load', () => {
         e.currentTarget.parentElement.parentElement.submit();
     })
   })
+  const jobCheckboxes = document.querySelectorAll(".job-reminder-checkbox")
+  jobCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("click", e => {
+      // console.log(e);
+      e.preventDefault();
+        e.currentTarget.parentElement.submit();
+    })
+  })
 });
+
+
+
 
 import "controllers";
 
