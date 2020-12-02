@@ -30,7 +30,7 @@
   font-family: 'Montserrat', sans-serif;
   border-radius: 4px;
   border: none;
-  outline: none;
+  outline: none !important;
   padding: 8px 16px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
@@ -47,7 +47,7 @@
   border-radius: 4px;
   border: none;
   outline: none !important;
-  padding:8px 16px;
+  padding: 8px 16px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   margin-top: 50px;
