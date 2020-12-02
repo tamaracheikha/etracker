@@ -31,7 +31,7 @@
   padding: 0px 15px 12px;
   border-bottom: 1px solid #e1e3e5;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .job-reminder-form {
@@ -62,10 +62,18 @@
 
 .job-reminder-card {
   margin-bottom: 0;
-  padding: 0 24px;
-  padding-top: 8px;
+  padding: 15px 24px 0px;
   display: flex;
   align-items: center;
+  border-left: solid 4px #2FAD3A;
+}
+
+.job-reminder-card-incomplete {
+  margin-bottom: 0;
+  padding: 15px 24px 0px;
+  display: flex;
+  align-items: center;
+  border-left: solid 4px #F44343;
 }
 
 .job-reminder-card-top {
