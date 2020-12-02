@@ -5,24 +5,17 @@ class RemindersController < ApplicationController
 
   def create
     @reminder = Reminder.new(reminder_params)
-    if reminder_params.include?("application_id")
-      @application = Application.find(reminder_params[:application_id])
-      @reminder.application = @application
-      @reminder.user = current_user
-      if @reminder.save
-        redirect_to application_path(@application)
-      else
-        render "applications/show"
-      end
-    else
-      @application = Application.find(params[:application_id])
-      @reminder.application = @application
-      @reminder.user = current_user
-      if @reminder.save
+    # @application = Application.find(params[:application_id])
+    # @reminder.application = @application
+    @reminder.user = current_user
+    if @reminder.save
+      if request.referrer.split("/").last == "applications"
         redirect_to applications_path(reminder: true)
       else
-        render "applications/show"
+        redirect_to application_path(@reminder.application)
       end
+    else
+      render "applications/show"
     end
   end
 
