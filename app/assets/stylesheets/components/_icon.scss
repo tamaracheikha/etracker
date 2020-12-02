@@ -12,6 +12,7 @@
 .icon.arrow {
   color: #19CAC9;
   transition: background 0.3s ease;
+  height:24px;
 } .icon.arrow:hover {
   color: #15A9BA;
 }
@@ -21,6 +22,10 @@
   justify-content: space-between;
 }
 
+
+#trash-show{
+  color:gray;
+}
 .icon.delete {
   color: gray;
   transition: background 0.3s ease;

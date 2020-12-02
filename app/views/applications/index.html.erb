@@ -26,9 +26,11 @@
                 <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
                       <div class="application-grid">
-                        <%= image_tag "https://cdn.worldvectorlogo.com/logos/google-icon.svg", class: "avatar dropdown-toggle", id: "company-logo", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% if application.company.photo.attached?  %>
+                          <%= cl_image_tag application.company.photo.key, class: "avatar dropdown-toggle", id: "company-logo" %>
+                        <% end %>
                         <div class="application-title">
-                          <h6><%= application.company_name %></h6>
+                          <h6><%= application.company.name %></h6>
                           <p><%= application.job_title %></p>
                         <div class="date-icon">
                           <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
