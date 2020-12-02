@@ -48,19 +48,20 @@
       </div>
 
   <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
-    <div class="reminder-button-container d-flex justify-content-around mt-3">
-      <div class="m-0">
-        <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index">+ Add Reminder</button>
-      </div>
-    </div>
 
 <div class="reminders-container">
-  <div class="header-row d-flex justify-content-between">
+  <!-- <div class="header-row d-flex justify-content-between">
     <h6>All Reminders</h6>
-    <h6>Today's Reminders</h6>
-  </div>
-  <div class="reminders-row d-flex w-100">
-    <div class="all-reminders col-6">
+    <h6>Today's Reminders <%= fa_icon "calendar-alt", class: "icon" %></h6>
+  </div> -->
+  <div class="reminders-row d-flex w-100 justify-content-between">
+    <div class="all-reminders-container">
+      <div class="all-reminders-header">
+        <h6>All Reminders</h6>
+        <div class="reminder-button-container">
+          <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index-db"><small>+ Add Reminder</small></button>
+        </div>
+      </div>
       <% @reminders.order(scheduled_date: :desc).each do |reminder| %>
         <div class="reminder-card<%= '-incomplete' if !reminder.completed %>">
           <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
@@ -75,7 +76,7 @@
             <div class="reminder-card-info">
               <p class="reminder-date"><%= reminder.scheduled_date.strftime("%B %e, %Y") %></p>
               <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "reminder-delete" do %>
-                <i class="fa fa-trash icon add" aria-hidden="true"></i>
+                <i class="fa fa-trash icon delete" aria-hidden="true"></i>
                 <% end %>
               </p>
             </div>
@@ -83,32 +84,37 @@
         </div>
       <% end %>
     </div>
-    <div class="today-reminders col-6">
-      <% @applications.each do |application| %>
-        <% if application.reminders.any? %>
-          <div class="application-reminder-card">
-            <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
-            <% application.reminders.where(scheduled_date: Date.today).each do |reminder| %>
-              <div class="job-reminders">
-                <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
-                  <div class="job-reminder-form">
-                    <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
-                      <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
-                      <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
+    <div class="today-reminders-container">
+      <h6 class="today-reminders-header">Today's Reminders</h6>
+      <div class="application-reminder-grid">
+        <% @applications.each do |application| %>
+          <% if application.reminders.any? %>
+            <div class="application-reminder-card">
+              <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
+              <% application.reminders.where(scheduled_date: Date.today).each do |reminder| %>
+                <div class="job-reminders">
+                  <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
+                    <div class="job-reminder-form">
+                      <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
+                        <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+                        <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
+                    </div>
+                    <div class="job-reminder-card-top">
+                      <p id="job-reminder-title"><%= reminder.title %></p>
+                      <div class="job-reminder-delete">
+                        <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "job-reminder-delete" do %>
+                            <i class="fa fa-trash icon delete" aria-hidden="true"></i>
+                          <% end %></p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="job-reminder-card-top">
-                    <p id="reminder-title"><%= reminder.title %></p>
-                    <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "job-reminder-delete" do %>
-                        <i class="fa fa-trash icon add" aria-hidden="true"></i>
-                      <% end %></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
+    </div>
     </div>
   </div>
 </div>
@@ -120,7 +126,7 @@
             <%= simple_form_for @reminder do |f| %>
             <%= f.input :title %>
             <%= f.association :application, label_method: :pretty_name %>
-            <%= f.input :scheduled_date %>
+            <%= f.input :scheduled_date, as: :datetime %>
             <div class="submit-button-container d-flex justify-content-around mb-4">
               <%= f.button :submit, class:"button"%>
             </div>

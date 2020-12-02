@@ -58,6 +58,18 @@
   background-color: #EA2361;
 }
 
+#reminder-button-index-db {
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background-color: #F6F6F6;
+  color: black;
+  outline: none;
+  transition: text-decoration 0.3s ease;
+} #reminder-button-index-db:hover {
+  color: black;
+  border-bottom: 3px solid #EA2361;
+}
+
 #reminder-button-index {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
@@ -69,8 +81,8 @@
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   transition: background 0.3s ease;
-  margin: 8px 0px;
-  margin-bottom: 18px;
+  // margin: 8px 0px;
+  // margin-bottom: 18px;
 } #reminder-button-index:hover {
   background-color: #EA2361;
   color: white;
