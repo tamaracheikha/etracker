@@ -18,7 +18,16 @@
 }
 
 #navbar-button {
+  background-color: white !important;
+  color: #2AABB9 !important;
+  text-decoration: none;
+  font-size: 80%;
   outline: none;
+  font-weight: bold;
+  margin-left: 16px;
+  border-radius: 50px !important;
+  margin-right: 10px;
+  border: none;
 }
 
 .navbar-sticky {
@@ -49,4 +58,11 @@
 #name-etracker {
   color:white;
   text-decoration:none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 21px;
+  padding-left: 21px;
+}
+
+#navbarDropdown {
+  cursor: pointer;
 }

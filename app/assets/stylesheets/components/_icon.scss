@@ -21,6 +21,14 @@
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
 #trash-show{
   color:#CCCFD5;
+=======
+.icon.delete {
+  color: gray;
+  transition: background 0.3s ease;
+} .icon.delete:hover {
+  color: #EA2361;
+>>>>>>> master
 }
