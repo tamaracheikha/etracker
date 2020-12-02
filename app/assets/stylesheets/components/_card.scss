@@ -37,10 +37,6 @@
   }
 }
 
-.application-info {
-  border-bottom: 1px solid #e1e3e5;
-}
-
 .application-title{
   padding-top:10px;
 }
@@ -140,7 +136,22 @@
 }
 
 .application-info{
-  border-bottom:1px solid rgb(230,230,230);
-  margin-bottom:24px;
 }
 
+.card-info-with-logo{
+  border-bottom:1px solid rgb(230,230,230);
+  margin-bottom:24px;
+  padding-bottom:24px;
+}
+
+#company-logo-show-page{
+  width: 100px;
+  height:100px;
+  border-radius: 50%;
+  margin-right:24px;
+  object-fit: cover;
+}
+
+.logo-div{
+  // margin-top:50%
+}
