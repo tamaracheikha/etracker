@@ -63,17 +63,9 @@ class ApplicationsController < ApplicationController
     redirect_to applications_path
   end
 
-  def extension
-    @application = Application.new(application_params)
-    if @application.save
-      StatusUpdate.create(application: @application, date: Date.today, content: @application.application_status)
-      redirect_to application_path(@application)
-    end
-  end
-
   private
 
   def application_params
-    params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter, :application_status)
+    params.require(:application).permit(:company_name, :company_link, :location, :job_title, :job_description, :cv, :cover_letter, :application_status, :company_id)
   end
 end

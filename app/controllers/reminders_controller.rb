@@ -26,13 +26,13 @@ class RemindersController < ApplicationController
     end
     @application = @reminder.application
     @reminder.update(reminder_params)
-    redirect_to applications_path
+    redirect_to applications_path(reminder: true)
   end
 
   def destroy
     @reminder = Reminder.find(params[:id])
     @reminder.destroy
-    redirect_to applications_path
+    redirect_to applications_path(reminder: true)
   end
 
   private
