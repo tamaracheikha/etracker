@@ -92,15 +92,16 @@
         <% @applications.each do |application| %>
           <% if application.reminders.any? %>
             <div class="application-reminder-card">
-              <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
-              <% application.reminders.where(scheduled_date: Date.today).each do |reminder| %>
+              <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
+              <% application.reminders.each do |reminder| %>
                 <div class="job-reminders">
-                  <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
-                    <div class="job-reminder-form">
+                 <div class="job-reminder-card <%= '-incomplete' if !reminder.completed %>">
+                  <div class="job-reminder-form">
                       <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
-                        <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
-                        <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
-                    </div>
+                      <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+                      <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
+                      <% end %>
+                  </div>
                     <div class="job-reminder-card-top">
                       <p id="job-reminder-title"><%= reminder.title %></p>
                       <div class="job-reminder-delete">
@@ -115,10 +116,10 @@
             <% end %>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     </div>
   </div>
+</div>
 </div>
 
     <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -140,4 +141,3 @@
   </div>
 </div>
 </div>
-
