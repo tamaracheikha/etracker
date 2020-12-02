@@ -1,6 +1,6 @@
 class Application < ApplicationRecord
   belongs_to :user
-  belongs_to :company
+  belongs_to :company, optional: true
 
   has_one_attached :cv
   has_one_attached :cover_letter
