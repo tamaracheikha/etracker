@@ -1,7 +1,7 @@
 .button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius: 4px;
+  border-radius: 50px;
   border: none;
   padding: 8px 16px;
   font-size: smaller;
@@ -15,24 +15,10 @@
     color: white;
   }
 
-#navbar-button{
-  background-color: transparent;
-  color: white;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  font-weight:bold;
-  margin-left:16px;
-  border-radius: 8px;
-  // box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
-} #navbar-button:hover{
-    border: none;
-}
-
 .add-notes-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius: 4px;
+  border-radius: 50px;
   border: none;
   outline: none !important;
   padding: 8px 16px;
@@ -48,7 +34,7 @@
 .reminder-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius: 4px;
+  border-radius: 50px;
   border: none;
   width:150px;
   outline: none !important;
@@ -66,7 +52,7 @@
 #reminder-button-index {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
-  border-radius:4px;
+  border-radius:50px;
   border: none;
   outline: none;
   padding: 8px 16px;
