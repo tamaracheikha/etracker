@@ -11,6 +11,6 @@ class Application < ApplicationRecord
   validates :application_status, inclusion: { in: STATUSES }
 
   def pretty_name
-    "#{company_name} - #{job_title} - #{application_status}"
+    "#{self.company.name} - #{job_title} - #{application_status}"
   end
 end
