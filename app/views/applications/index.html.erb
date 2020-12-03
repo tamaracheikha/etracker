@@ -93,7 +93,7 @@
           <% if application.reminders.any? %>
             <div class="application-reminder-card">
               <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
-              <% application.reminders.where(scheduled_date: Date.today).each do |reminder| %>
+              <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %>
                 <div class="job-reminders">
                   <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
                     <div class="job-reminder-form">
