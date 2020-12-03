@@ -120,18 +120,19 @@
       </div>
     </div>
   </div>
-    <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="container notes-form">
-            <%= simple_form_for @reminder do |f| %>
-              <%= f.input :title %>
-              <%= f.association :application, label_method: :pretty_name %>
-              <%= f.input :scheduled_date, as: :datetime %>
-              <div class="submit-button-container d-flex justify-content-around mb-4">
-                 <%= f.button :submit, class:"button"%>
-              </div>
-            <% end %>
+      <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="container notes-form">
+              <%= simple_form_for @reminder do |f| %>
+                <%= f.input :title %>
+                <%= f.association :application, label_method: :pretty_name %>
+                <%= f.input :scheduled_date, as: :datetime %>
+                <div class="submit-button-container d-flex justify-content-around mb-4">
+                   <%= f.button :submit, class:"button"%>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
