@@ -1,5 +1,4 @@
 <div class="applications-container">
-
   <ul class="nav list-inline tabs-underlined nav-fill" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link <%= "active" unless params[:reminder] %> tab-underlined" data-toggle="tab" id="applications-tab" href="#applications" role="tab" area-controls="applications" area-selected="true" >My Applications</a>
@@ -8,7 +7,6 @@
       <a class="nav-link <%= "active" if params[:reminder] %> tab-underlined" data-toggle="tab" id="reminders-tab" href="#reminders" role="tab" area-controls="reminders" area-selected="false" >My Reminders</a>
     </li>
   </ul>
-
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade <%= "active show" unless params[:reminder] %>" id="applications" area-labelledby="applications-tab" role="tabpanel">
       <div class="row dashboard" data-controller="draggable">
@@ -16,13 +14,11 @@
           <div class="col">
             <div class="status-card">
               <div class="row card-title">
+                <%= link_to new_application_path(status: status) do %>
+                  <h5 class="icon add"><%= fa_icon "plus" %></h5>
+                <% end %>
                 <h6><%= status %></h6>
                 <h5 class="icon"><%= icon %></h5>
-              </div>
-              <div class="add-application-card">
-                <%= link_to new_application_path(status: status) do %>
-                  <h5 class="icon new"><%= fa_icon "plus" %></h5>
-                <% end %>
               </div>
               <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
                 <% @applications.where(application_status: status).each do |application| %>
@@ -50,9 +46,7 @@
           <% end %>
         </div>
       </div>
-
   <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
-
 <div class="reminders-container">
   <!-- <div class="header-row d-flex justify-content-between">
     <h6>All Reminders</h6>
@@ -66,7 +60,7 @@
           <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index-db"><small>+ Add Reminder</small></button>
         </div>
       </div>
-      <% @ordered_reminders.each do |reminder| %>
+      <% @reminders.order(scheduled_date: :desc).each do |reminder| %>
         <div class="reminder-card<%= '-incomplete' if !reminder.completed %>">
           <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
             <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
@@ -95,7 +89,6 @@
           <% if application.reminders.any? %>
             <div class="application-reminder-card">
               <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
-              <!-- <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %> -->
               <% application.reminders.each do |reminder| %>
                 <div class="job-reminders">
                  <div class="job-reminder-card <%= '-incomplete' if !reminder.completed %>">
@@ -124,7 +117,6 @@
   </div>
 </div>
 </div>
-
     <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -144,3 +136,14 @@
   </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
