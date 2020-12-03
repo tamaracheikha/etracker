@@ -13,4 +13,20 @@ class Application < ApplicationRecord
   def pretty_name
     "#{self.company.name} - #{job_title} - #{application_status}"
   end
+
+  def display_icon
+    if self.application_status == "Saved"
+      "far fa-star"
+    elsif self.application_status == "Applied"
+      "far fa-file"
+    elsif self.application_status == "Interviewing"
+      "fas fa-phone"
+    elsif self.application_status == "Offer"
+      "fas fa-award"
+    elsif self.application_status == "Rejected"
+      "far fa-thumbs-down"
+    else
+      "far fa-star"
+    end
+  end
 end
