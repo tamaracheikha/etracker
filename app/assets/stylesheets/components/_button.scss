@@ -15,6 +15,19 @@
     color: white;
   }
 
+.add-application-button {
+  background: white;
+  border: 1px solid #e1e3e5;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 7px;
+  transition: background 0.3s ease;
+  margin-bottom: 5px;
+  color: #EA2361;
+} .add-application-button:hover {
+  color: #EA094F;
+}
+
 .add-notes-button {
   background-color: #D9455F;
   font-family: 'Montserrat', sans-serif;
@@ -51,14 +64,16 @@
 
 #reminder-button-index-db {
   font-family: 'Montserrat', sans-serif;
-  border: none;
-  background-color: #F6F6F6;
-  color: black;
+  border: #EA2361 solid 1px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #FAE9EE;
+  color: #EA2361;
   outline: none;
-  transition: text-decoration 0.3s ease;
+  transition: background 0.3s ease;
 } #reminder-button-index-db:hover {
-  color: black;
-  border-bottom: 3px solid #EA2361;
+  color: #EA2361;
+  background-color: #FAD8E3;
 }
 
 #reminder-button-index {

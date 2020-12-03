@@ -11,12 +11,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 6px;
 }
 
 .today-reminders-header {
-  margin-bottom: 9px;
+  margin-bottom: 21px;
   text-align: left;
-  padding-right: 609px;
+  padding-top: 2px;
+  padding-right: 634px;
 }
 
 // .reminder-checkbox + label {
@@ -78,7 +80,7 @@
 }
 
 .reminder-button-container {
-  padding-left: 237px;
+  padding-left: 211px;
 }
 
 .application-reminder-grid {
