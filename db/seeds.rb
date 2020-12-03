@@ -8,7 +8,6 @@
 Company.destroy_all
 
 require 'csv'
-require 'byebug'
 
 csv_options = { col_sep: ',', headers: :first_row }
 filepath = Rails.root.join('db', 'companies.csv')
