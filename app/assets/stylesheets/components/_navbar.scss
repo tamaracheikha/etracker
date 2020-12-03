@@ -25,13 +25,15 @@
   outline: none;
   font-weight: bold;
   margin-left: 16px;
-  border-radius: 50px !important;
+  border-radius: 4px !important;
   margin-right: 10px;
   border: none;
+  transition: background-color 0.3s;
 }
 
 #navbar-button:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: #f2f7f8;
 }
 
 .navbar-sticky {
