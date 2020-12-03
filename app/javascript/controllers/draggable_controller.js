@@ -14,9 +14,11 @@ export default class extends Controller {
         draggable: 'li'
         })
       sortable.on('sortable:stop', function(event) {
+        console.log(event)
         let url = event.dragEvent.source.getAttribute('data-url')
         let column = event.newContainer.getAttribute('data-status')
         let data = { application: { application_status: column } }
+        console.log(event)
         let token = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content')
         fetch(url, {
           method: 'PUT',
@@ -27,7 +29,7 @@ export default class extends Controller {
             "Content-type": "application/json"
           },
           body: JSON.stringify(data)
-        })
+        }).then(response => response).then(data => console.log(data)).catch(error => console.error(error))
       })
       }
     }

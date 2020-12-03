@@ -26,8 +26,8 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     respond_to do |format|
       if @application.update(application_params)
-        format.html { redirect_to application_path(@application), notice: 'Application was successfully updated.' }
-        format.json {}
+        format.html { render :index, notice: 'Application was successfully updated.' }
+        format.json { }
       else
         format.html { render :edit }
         format.json { render json: @application.errors, status: :unprocessable_entity }
@@ -41,7 +41,6 @@ class ApplicationsController < ApplicationController
     # else
     #   render :edit
     # end
-
 
   def new
     @application = Application.new
