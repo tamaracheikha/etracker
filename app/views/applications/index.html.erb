@@ -28,9 +28,11 @@
                 <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
                       <div class="application-grid">
-                        <%= image_tag "https://cdn.worldvectorlogo.com/logos/google-icon.svg", class: "avatar dropdown-toggle", id: "company-logo", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% if application.company.photo.attached?  %>
+                          <%= cl_image_tag application.company.photo.key, class: "avatar dropdown-toggle", id: "company-logo" %>
+                        <% end %>
                         <div class="application-title">
-                          <h6><%= application.company_name %></h6>
+                          <h6><%= application.company.name %></h6>
                           <p><%= application.job_title %></p>
                         <div class="date-icon">
                           <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
@@ -92,15 +94,17 @@
         <% @applications.each do |application| %>
           <% if application.reminders.any? %>
             <div class="application-reminder-card">
-              <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
-              <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %>
+              <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
+              <!-- <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %> -->
+              <% application.reminders.each do |reminder| %>
                 <div class="job-reminders">
-                  <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
-                    <div class="job-reminder-form">
+                 <div class="job-reminder-card <%= '-incomplete' if !reminder.completed %>">
+                  <div class="job-reminder-form">
                       <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
-                        <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
-                        <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
-                    </div>
+                      <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+                      <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
+                      <% end %>
+                  </div>
                     <div class="job-reminder-card-top">
                       <p id="job-reminder-title"><%= reminder.title %></p>
                       <div class="job-reminder-delete">
@@ -115,10 +119,10 @@
             <% end %>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     </div>
   </div>
+</div>
 </div>
 
     <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -140,4 +144,3 @@
   </div>
 </div>
 </div>
-
