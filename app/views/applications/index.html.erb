@@ -90,7 +90,7 @@
           <h6 class="today-reminders-header">Today's Reminders</h6>
           <div class="application-reminder-grid">
             <% @applications.each do |application| %>
-              <% if application.reminders.any? %>
+              <% if application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count > 0 %>
                 <div class="application-reminder-card">
                   <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
                   <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).each do |reminder| %>
