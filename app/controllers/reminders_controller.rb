@@ -9,11 +9,13 @@ class RemindersController < ApplicationController
     # @reminder.application = @application
     @reminder.user = current_user
     if @reminder.save
-      if request.referrer.split("/").last == "applications"
-        redirect_to applications_path(reminder: true)
-      else
-        redirect_to application_path(@reminder.application)
-      end
+      # if request.referrer.split("/").last == "applications"
+      #   redirect_to applications_path(reminder: true)
+      # else
+      #   redirect_to application_path(@reminder.application)
+      # end
+      @reminder.scheduled_date = @reminder.scheduled_date + DateTime.now.in_time_zone
+      redirect_to "#{request.referrer}?reminder=true"
     else
       render "applications/show"
     end

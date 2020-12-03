@@ -2,3 +2,7 @@
   border-left: #E0E1E4 1px solid;
   margin: 24px 0px;
 }
+
+.col:first-child {
+  border-left: none;
+}

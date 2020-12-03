@@ -38,14 +38,25 @@
   }
 }
 
-.application-title{
-  padding-top:10px;
+.add-application-card {
+  background: white;
+  border: 1px solid #e1e3e5;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 7px;
 }
 
-.application-grid{
-  display:grid;
-  grid-template-columns: 1fr 3fr;
+.application-info {
+  border-bottom: 1px solid #e1e3e5;
+}
 
+.application-title {
+  padding-top: 10px;
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 
 #company-logo{
@@ -55,11 +66,6 @@
 .dropzone {
   min-height: 500px;
   outline: none;
-}
-
-.card-title {
-  margin-top: 30px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .card.sign-up {
@@ -80,10 +86,14 @@
 .row.card-title {
   margin-right: 0;
   margin-left: 0;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
   h6 {
     font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
     color: #000C0E;
   }
 }

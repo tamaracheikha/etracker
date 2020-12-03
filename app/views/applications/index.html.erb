@@ -16,11 +16,13 @@
           <div class="col">
             <div class="status-card">
               <div class="row card-title">
-                <%= link_to new_application_path(status: status) do %>
-                  <h5 class="icon add"><%= fa_icon "plus" %></h5>
-                <% end %>
                 <h6><%= status %></h6>
                 <h5 class="icon"><%= icon %></h5>
+              </div>
+              <div class="add-application-card">
+                <%= link_to new_application_path(status: status) do %>
+                  <h5 class="icon new"><%= fa_icon "plus" %></h5>
+                <% end %>
               </div>
               <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
                 <% @applications.where(application_status: status).each do |application| %>
@@ -64,7 +66,7 @@
           <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index-db"><small>+ Add Reminder</small></button>
         </div>
       </div>
-      <% @reminders.order(scheduled_date: :desc).each do |reminder| %>
+      <% @ordered_reminders.each do |reminder| %>
         <div class="reminder-card<%= '-incomplete' if !reminder.completed %>">
           <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
             <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
@@ -93,6 +95,7 @@
           <% if application.reminders.any? %>
             <div class="application-reminder-card">
               <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
+              <!-- <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %> -->
               <% application.reminders.each do |reminder| %>
                 <div class="job-reminders">
                  <div class="job-reminder-card <%= '-incomplete' if !reminder.completed %>">

@@ -14,6 +14,7 @@ class ApplicationsController < ApplicationController
     @applications = current_user.applications
     @reminders = current_user.reminders
     @reminder = Reminder.new
+    @ordered_reminders = Reminder.order(scheduled_date: :desc)
     @application = Application.new
   end
 
