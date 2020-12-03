@@ -1,8 +1,7 @@
-<div class="applications-container">
-
+<div class="index-container">
   <ul class="nav list-inline tabs-underlined nav-fill" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link <%= "active" unless params[:reminder] %> tab-underlined" data-toggle="tab" id="applications-tab" href="#applications" role="tab" area-controls="applications" area-selected="true" >My Applications</a>
+      <a href="#applications" class="nav-link <%= "active" unless params[:reminder] %> tab-underlined" data-toggle="tab" id="applications-tab" area-controls="applications" area-selected="true" >My Applications</a>
     </li>
     <li class="nav-item" role="presentation">
       <a class="nav-link <%= "active" if params[:reminder] %> tab-underlined" data-toggle="tab" id="reminders-tab" href="#reminders" role="tab" area-controls="reminders" area-selected="false" >My Reminders</a>
@@ -11,38 +10,39 @@
 
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade <%= "active show" unless params[:reminder] %>" id="applications" area-labelledby="applications-tab" role="tabpanel">
-      <div class="row dashboard" data-controller="draggable">
-        <% { "Saved" => content_tag(:i, "", class: "far fa-star"), "Applied" => content_tag(:i, "", class: "far fa-file"), "Interviewing" => content_tag(:i, "", class: "fas fa-phone"), "Offer" => content_tag(:i, "", class: "fas fa-medal"), "Rejected" => content_tag(:i, "", class: "far fa-thumbs-down") }.each do |status, icon| %>
-          <div class="col">
-            <div class="status-card">
-              <div class="row card-title">
-                <h6><%= status %></h6>
-                <h5 class="icon"><%= icon %></h5>
-              </div>
-              <div class="add-application-card">
-                <%= link_to new_application_path(status: status) do %>
-                  <h5 class="icon new"><%= fa_icon "plus" %></h5>
-                <% end %>
-              </div>
-              <ul class="card-text dropzone" data-target="draggable.column" data-status="<%= status %>">
-                <% @applications.where(application_status: status).each do |application| %>
+      <div class="applications-container">
+        <div class="row dashboard" data-controller="draggable">
+          <% { "Saved" => content_tag(:i, "", class: "far fa-star"), "Applied" => content_tag(:i, "", class: "far fa-file"), "Interviewing" => content_tag(:i, "", class: "fas fa-phone"), "Offer" => content_tag(:i, "", class: "fas fa-medal"), "Rejected" => content_tag(:i, "", class: "far fa-thumbs-down") }.each do |status, icon| %>
+            <div class="col">
+              <div class="status-card">
+                <div class="row-card-title">
+                  <h6><%= status %></h6>
+                  <h5 class="icon"><%= icon %></h5>
+                </div>
+                <div class="add-application-card">
+                  <%= link_to new_application_path(status: status) do %>
+                    <h5 class="icon new"><%= fa_icon "plus" %></h5>
+                  <% end %>
+                </div>
+                <ul class="card-text-dropzone" data-target="draggable.column" data-status="<%= status %>">
+                  <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
                       <div class="application-grid">
-                        <% if application.company.photo.attached?  %>
+                        <% if application.company.photo.attached? %>
                           <%= cl_image_tag application.company.photo.key, class: "avatar dropdown-toggle", id: "company-logo" %>
                         <% end %>
                         <div class="application-title">
                           <h6><%= application.company.name %></h6>
                           <p><%= application.job_title %></p>
-                        <div class="date-icon">
-                          <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
-                          <%= link_to application_path(application), class: "z-index" do %>
-                            <%= fa_icon "arrow-circle-right", class: "icon arrow" %>
-                          <% end %>
+                          <div class="date-icon">
+                            <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
+                            <%= link_to application_path(application), class: "z-index" do %>
+                              <%= fa_icon "arrow-circle-right", class: "icon arrow" %>
+                            <% end %>
+                          </div>
                         </div>
-                        </div>
-                       </div>
-                      </li>
+                      </div>
+                    </li>
                   <% end %>
                 </ul>
               </div>
@@ -50,97 +50,88 @@
           <% end %>
         </div>
       </div>
-
-  <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminders-tab" role="tabpanel">
-
-<div class="reminders-container">
-  <!-- <div class="header-row d-flex justify-content-between">
-    <h6>All Reminders</h6>
-    <h6>Today's Reminders <%= fa_icon "calendar-alt", class: "icon" %></h6>
-  </div> -->
-  <div class="reminders-row d-flex w-100 justify-content-between">
-    <div class="all-reminders-container">
-      <div class="all-reminders-header">
-        <h6>All Reminders</h6>
-        <div class="reminder-button-container">
-          <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index-db"><small>+ Add Reminder</small></button>
-        </div>
-      </div>
-      <% @ordered_reminders.each do |reminder| %>
-        <div class="reminder-card<%= '-incomplete' if !reminder.completed %>">
-          <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
-            <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
-            <div class="reminder-card-top">
-              <%= f.check_box :completed, input_html: { value: "completed" }, class: "reminder-checkbox" %>
-              <div class="reminder-content">
-                <h6 id="reminder-title"><strong><%= reminder.title %></strong></h6>
-                <p id="pretty-name"><em><%= reminder.application.pretty_name%></em></p>
+    </div>
+    <div class="tab-pane fade <%= "active show" if params[:reminder] %>" id="reminders" area-labelledby="reminder-tab" role="tabpanel">
+      <div class="reminders-container">
+        <div class="reminders-row d-flex w-100 justify-content-between">
+          <div class="all-reminders-container">
+            <div class="all-reminders-header">
+              <h6>All Reminders</h6>
+              <div class="reminder-button-container">
+                <button type="button" data-toggle="modal" data-target=".create-modal" id="reminder-button-index-db"><small>+ Add Reminder</small></button>
               </div>
             </div>
-            <div class="reminder-card-info">
-              <p class="reminder-date"><%= reminder.scheduled_date.strftime("%B %e, %Y") %></p>
-              <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "reminder-delete" do %>
-                <i class="fa fa-trash icon delete" aria-hidden="true"></i>
-                <% end %>
-              </p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="today-reminders-container">
-      <h6 class="today-reminders-header">Today's Reminders</h6>
-      <div class="application-reminder-grid">
-        <% @applications.each do |application| %>
-          <% if application.reminders.any? %>
-            <div class="application-reminder-card">
-              <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
-              <!-- <% application.reminders.where(scheduled_date: DateTime.now).each do |reminder| %> -->
-              <% application.reminders.each do |reminder| %>
-                <div class="job-reminders">
-                 <div class="job-reminder-card <%= '-incomplete' if !reminder.completed %>">
-                  <div class="job-reminder-form">
-                      <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
-                      <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
-                      <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
-                      <% end %>
-                  </div>
-                    <div class="job-reminder-card-top">
-                      <p id="job-reminder-title"><%= reminder.title %></p>
-                      <div class="job-reminder-delete">
-                        <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "job-reminder-delete" do %>
-                            <i class="fa fa-trash icon delete" aria-hidden="true"></i>
-                          <% end %></p>
-                      </div>
+            <% @ordered_reminders.each do |reminder| %>
+              <div class="reminder-card<%= '-incomplete' if !reminder.completed %>">
+                <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "reminder-form" do |f| %>
+                  <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+                  <div class="reminder-card-top">
+                    <%= f.check_box :completed, input_html: { value: "completed" }, class: "reminder-checkbox" %>
+                    <div class="reminder-content">
+                      <h6 id="reminder-title"><strong><%= reminder.title %></strong></h6>
+                      <p id="pretty-name"><em><%= reminder.application.pretty_name%></em></p>
                     </div>
                   </div>
+                  <div class="reminder-card-info">
+                    <p class="reminder-date"><%= reminder.scheduled_date.strftime("%B %e, %Y") %></p>
+                    <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "reminder-delete" do %>
+                      <i class="fa fa-trash icon delete" aria-hidden="true"></i>
+                    <% end %></p>
+                  </div>
                 <% end %>
               </div>
             <% end %>
           </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-    <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="container notes-form">
-            <%= simple_form_for @reminder do |f| %>
-            <%= f.input :title %>
-            <%= f.association :application, label_method: :pretty_name %>
-            <%= f.input :scheduled_date, as: :datetime %>
-            <div class="submit-button-container d-flex justify-content-around mb-4">
-              <%= f.button :submit, class:"button"%>
+          <div class="today-reminders-container">
+            <h6 class="today-reminders-header">Today's Reminders</h6>
+            <div class="application-reminder-grid">
+              <% @applications.each do |application| %>
+                <% if application.reminders.any? %>
+                  <div class="application-reminder-card">
+                    <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
+                    <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).each do |reminder| %>
+                      <div class="job-reminders">
+                        <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
+                          <div class="job-reminder-form">
+                            <%= form_for reminder, remote: true, url: application_reminder_path(reminder.application, reminder), method: :patch, class: "job-reminder-form" do |f| %>
+                              <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+                              <%= f.check_box :completed, html: { value: "completed" }, class: "job-reminder-checkbox" %>
+                            <% end %>
+                          </div>
+                          <div class="job-reminder-card-top">
+                            <p id="job-reminder-title"><%= reminder.title %></p>
+                            <div class="job-reminder-delete">
+                              <p><%= link_to reminder_path(reminder), method: :delete, data: { confirm: "Are you sure you want to delete this reminder?" }, class: "job-reminder-delete" do %>
+                                  <i class="fa fa-trash icon delete" aria-hidden="true"></i>
+                                <% end %></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
-            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bd-example-modal-lg create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="container notes-form">
+              <%= simple_form_for @reminder do |f| %>
+                <%= f.input :title %>
+                <%= f.association :application, label_method: :pretty_name %>
+                <%= f.input :scheduled_date, as: :datetime %>
+                <div class="submit-button-container d-flex justify-content-around mb-4">
+                  <%= f.button :submit, class:"button"%>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+
