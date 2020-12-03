@@ -18,8 +18,8 @@
 }
 
 #navbar-button {
-  background-color: white !important;
-  color: #2AABB9 !important;
+  background-color: white;
+  color: #2AABB9;
   text-decoration: none;
   font-size: 80%;
   outline: none;
@@ -28,6 +28,10 @@
   border-radius: 50px !important;
   margin-right: 10px;
   border: none;
+}
+
+#navbar-button:hover {
+  text-decoration: underline;
 }
 
 .navbar-sticky {
