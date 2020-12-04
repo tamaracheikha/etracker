@@ -42,7 +42,7 @@
             <%= f.input :cv, as: :file %>
             <%= f.input :cover_letter, as: :file %>
             <%= f.input :application_status, :collection => ['Saved','Applied','Interviewing','Offer'] %>
-            <div>
+            <div class="d-flex justify-content-center">
               <%= f.button :submit, class:"submit-button" %>
             </div>
           <% end %>
