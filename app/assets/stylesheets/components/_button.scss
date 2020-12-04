@@ -19,7 +19,7 @@
   border-radius: 4px;
   background-color: #FAE9EE;
   color: #EA2361;
-  outline: none;
+  outline: none !important;
   margin-top: 35px;
   transition: background 0.3s ease;
 } .add-notes-button:hover {
@@ -34,8 +34,9 @@
   border-radius: 4px;
   background-color: #FAE9EE;
   color: #EA2361;
-  outline: none;
+  outline: none !important;
   width: 150px;
+  margin-left: 7px;
   transition: background 0.3s ease;
 } .reminder-button:hover {
   color: #EA2361;
