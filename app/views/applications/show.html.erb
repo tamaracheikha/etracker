@@ -81,17 +81,17 @@
           <div class="notes">
             <% @application.notes.order(:created_at).each do |note| %>
               <div class="card" id="notes-content">
-                <div data-toggle="modal" data-target="#edit-modal">
+                <div data-toggle="modal" data-target="#edit-modal<%= note.id %>">
                   <h6 class="mr-2 mb-0 title-card"><%= note.title %></h6>
                   <p><%= note.rich_content %></p>
                 </div >
                 <div class="d-flex justify-content-between align-items-center symbols mb-3">
-                  <small class="mb-0 card-date" data-toggle="modal" data-target="#edit-modal"><%= note.date.strftime("%B %e, %Y") %></small>
+                  <small class="mb-0 card-date" data-toggle="modal" data-target="#edit-modal<%= note.id %>"><%= note.date.strftime("%B %e, %Y") %></small>
                     <%= link_to "...", note_path(note), class: ' mb-0 delete-symbol', method: :delete, data: { confirm: "Are you sure you want to delete this note?" }%>
                 </div>
                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal">Large modal</button> -->
               </div>
-              <div class="modal fade bd-example-modal-lg" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal fade bd-example-modal-lg" id="edit-modal<%= note.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="container modal-content">
                     <%= simple_form_for note do |f| %>
