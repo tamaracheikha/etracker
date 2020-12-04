@@ -210,3 +210,27 @@
   background: #F6F6F6;
   padding: 18px;
 }
+
+.job-reminder-checkbox {
+  cursor: pointer;
+}
+
+.reminder-checkbox {
+  cursor: pointer;
+}
+
+.job-reminders {
+  &:last-of-type {
+    div {
+      border-radius: 0 0 0 4px;
+    }
+  .reminders-show {
+    border-bottom: none;
+    }
+  }
+  &:first-of-type {
+    div {
+      border-radius: 4px 0 0 0;
+    }
+  }
+}
