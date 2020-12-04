@@ -93,7 +93,7 @@
               <% if application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count > 0 %>
                 <div class="application-reminder-card">
                   <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
-                  <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).each do |reminder| %>
+                  <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(scheduled_date: :desc).each do |reminder| %>
                     <div class="job-reminders">
                      <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
                       <div class="job-reminder-form">

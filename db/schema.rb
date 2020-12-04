@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_171013) do
   create_table "reminders", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "scheduled_date"
+    t.datetime "scheduled_date", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
