@@ -20,6 +20,7 @@
   background-color: #FAE9EE;
   color: #EA2361;
   outline: none;
+  margin-top: 35px;
   transition: background 0.3s ease;
 } .add-notes-button:hover {
   color: #EA2361;
@@ -146,4 +147,9 @@
 .job-button-cover:hover {
   background-color: #EA2361;
   text-decoration:none;
+}
+
+.delete-button-showpage {
+   margin-left: auto;
+   width: 20px;
 }
