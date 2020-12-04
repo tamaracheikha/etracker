@@ -116,7 +116,7 @@
     <div class="col-12 col-md-4 mt-4">
       <div class="reminders-container-show">
         <button type="button" class="text-underline reminder-button btn-block mb-4" data-toggle="modal" data-target=".create-reminder-modal">+ Add Reminder</button>
-        <% if @application.reminders.any? %>
+        <% if @application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count > 0 %>
           <div class="application-reminder-card">
             <% @application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).each do |reminder| %>
               <div class="job-reminders">
