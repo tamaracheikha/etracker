@@ -128,7 +128,8 @@
               <%= simple_form_for @reminder do |f| %>
                 <%= f.input :title %>
                 <%= f.association :application, label_method: :pretty_name %>
-                <%= f.input :scheduled_date, as: :datetime %>
+                <label for="scheduled_date">Scheduled Date:</label><br>
+                <input type="datetime-local" name="scheduled_date">
                 <div class="submit-button-container d-flex justify-content-around mb-4">
                    <%= f.button :submit, class:"button"%>
                 </div>

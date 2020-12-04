@@ -164,7 +164,8 @@
       <div class=" container reminder-form">
         <%= simple_form_for @reminder do |f| %>
         <%= f.input :title %>
-        <p><%= f.input :scheduled_date %></p>
+        <label for="scheduled_date">Scheduled Date:</label><br>
+        <input type="date" name="scheduled_date"><br>
         <%= f.input :application_id, as: :hidden, input_html: { value: @application.id } %>
         <div class="submit-button-container d-flex justify-content-around mb-4">
           <%= f.button :submit, class:"button"%>
