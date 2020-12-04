@@ -26,7 +26,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     respond_to do |format|
       if @application.update(application_params)
-        format.html { render :index, notice: 'Application was successfully updated.' }
+        format.html { redirect_to application_path(@application), notice: 'Application was successfully updated.' }
         format.json { }
       else
         format.html { render :edit }

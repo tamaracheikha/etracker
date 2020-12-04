@@ -11,10 +11,11 @@
     <div class="tab-pane fade <%= "active show" unless params[:reminder] %>" id="applications" area-labelledby="applications-tab" role="tabpanel">
       <div class="applications-container">
         <div class="spiel d-flex justify-content-around">
-          <p>Hi Noémie! Welcome back to your Dashboard! Start drag&dropping to update your applications. 🤓 </p>
+          <p><strong>Noémie</strong>, welcome back to eTracker - the simple, easy way to manage your job applications and take your career to the next level.<br>
+          Don’t settle for a jumble of spreadsheets and paperwork - drag and drop your applications from start to finish, all within your beautiful, personalised Dashboard. 🤓</p>
         </div>
         <div class="row dashboard ml-0 mr-0" data-controller="draggable">
-          <% { "Saved" => content_tag(:i, "", class: "far fa-star"), "Applied" => content_tag(:i, "", class: "far fa-file"), "Interviewing" => content_tag(:i, "", class: "fas fa-phone"), "Offer" => content_tag(:i, "", class: "fas fa-medal"), "Rejected" => content_tag(:i, "", class: "far fa-thumbs-down") }.each do |status, icon| %>
+          <% { "Saved" => content_tag(:i, "", class: "far fa-star"), "Applied" => content_tag(:i, "", class: "far fa-file"), "Interviewing" => content_tag(:i, "", class: "fas fa-phone"), "Offer" => content_tag(:i, "", class: "fas fa-award"), "Rejected" => content_tag(:i, "", class: "far fa-thumbs-down") }.each do |status, icon| %>
             <div class="col">
               <div class="status-card">
                 <div class="row-card-title">
@@ -93,7 +94,7 @@
               <% if application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count > 0 %>
                 <div class="application-reminder-card">
                   <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
-                  <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).each do |reminder| %>
+                  <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(scheduled_date: :desc).each do |reminder| %>
                     <div class="job-reminders">
                      <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
                       <div class="job-reminder-form">
