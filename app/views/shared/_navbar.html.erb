@@ -33,8 +33,8 @@
             <h2>Add an Application</h2>
           </div>
           <%= simple_form_for(@new_application) do |f| %>
-            <%#= f.input :company_name, class: "form-control" %>
-            <%= f.association :company, class: "form-control" %>
+            <%= f.input :company_name, class: "form-control" %>
+            <%#= f.association :company, class: "form-control" %>
             <%= f.input :company_link, class: "form-control" %>
             <%= f.input :location, class: "form-control" %>
             <%= f.input :job_title, class: "form-control" %>
