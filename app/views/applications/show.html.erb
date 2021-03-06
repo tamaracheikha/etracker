@@ -14,13 +14,14 @@
           <div class="card overview">
             <div class="card-info-with-logo align-items-center d-flex justify-content-start">
               <div class="logo-div">
-                <% if @application.company.photo.attached?  %>
-                  <%= cl_image_tag @application.company.photo.key, class: "dropdown-toggle", id: "company-logo-show-page" %>
-                <% end %>
+                <%=image_tag "https://logo.clearbit.com/#{@application.company_link}", class: "dropdown-toggle", id: "company-logo-show-page"%>
+                <%# if @application.company.photo.attached?  %>
+                  <%#= cl_image_tag @application.company.photo.key, class: "dropdown-toggle", id: "company-logo-show-page" %>
+                <%# end %>
               </div>
               <div class="application-info">
                 <div class= "d-flex justify-content-start align-items-center symbols">
-                  <h4><%= @application.company.name %></h4>
+                  <h4><%= @application.company_name %></h4>
                   <%= link_to edit_application_path(@application) do %>
                     <h4 class="icon add ml-1"><%= fa_icon "edit" %></h4>
                   <% end %>

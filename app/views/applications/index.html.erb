@@ -33,11 +33,12 @@
                   <% @applications.where(application_status: status).each do |application| %>
                     <li data-target="draggable.item" data-url="<%= application_path(application) %>" class="application-card">
                       <div class="application-grid">
-                        <% if application.company.photo.attached? %>
-                          <%= cl_image_tag application.company.photo.key, class: "avatar dropdown-toggle", id: "company-logo" %>
-                        <% end %>
+                        <%=image_tag "https://logo.clearbit.com/#{application.company_link}", class: "avatar dropdown-toggle", id: "company-logo"%>
+                        <%# if application.company.photo.attached? %>
+                          <%#= cl_image_tag application.company.photo.key, class: "avatar dropdown-toggle", id: "company-logo" %>
+                        <%# end %>
                         <div class="application-title">
-                          <h6><%= application.company.name %></h6>
+                          <h6><%= application.company_name %></h6>
                           <p><%= application.job_title %></p>
                           <div class="date-icon">
                             <p id="status"><em><%= application.updated_at.strftime("%B %e, %Y") %></em></p>
@@ -74,7 +75,7 @@
                   <%= f.check_box :completed, input_html: { value: "completed" }, class: "reminder-checkbox" %>
                   <div class="reminder-content">
                     <h6 id="reminder-title"><strong><%= reminder.title %></strong></h6>
-                    <p id="pretty-name"><em><%= reminder.application.pretty_name%></em></p>
+                    <p id="pretty-name"><em><%= reminder.application.company_name%></em></p>
                   </div>
                 </div>
                 <div class="reminder-card-info">
@@ -93,7 +94,7 @@
             <% @applications.each do |application| %>
               <% if application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count > 0 %>
                 <div class="application-reminder-card">
-                  <h6 class="application-name"><strong><%= application.company.name %></strong> <small> - <%= application.job_title %></small></h6>
+                  <h6 class="application-name"><strong><%= application.company_name %></strong> <small> - <%= application.job_title %></small></h6>
                   <% application.reminders.where(scheduled_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(scheduled_date: :desc).each do |reminder| %>
                     <div class="job-reminders">
                      <div class="job-reminder-card<%= '-incomplete' if !reminder.completed %>">
@@ -127,7 +128,7 @@
             <div class="container notes-form">
               <%= simple_form_for @reminder do |f| %>
                 <%= f.input :title %>
-                <%= f.association :application, label_method: :pretty_name %>
+                <%= f.association :application, label_method: :company_name %>
                 <%= f.input :scheduled_date, as: :datetime %>
                 <div class="submit-button-container d-flex justify-content-around mb-4">
                    <%= f.button :submit, class:"button"%>
