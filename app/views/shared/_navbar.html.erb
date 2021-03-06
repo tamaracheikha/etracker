@@ -7,12 +7,12 @@
         <li class="nav-item active">
           <button type="button" class="nav-link" id="navbar-button" data-toggle="modal" data-target=".create-application-modal">+ Add an Application</button>
         </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "000039500030.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Dashboard", "/applications", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+          </div> -->
         </li>
       <% else %>
         <li class="nav-item">
